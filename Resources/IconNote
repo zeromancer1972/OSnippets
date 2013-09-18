@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note default='true' class='icon' xmlns='http://www.lotus.com/dxl' version='9.0'
+ replicaid='C1257B0F005AC941'>
+<noteinfo noteid='122' unid='6F95D0A37BED1B68C1257AB7007A25C7' sequence='0'>
+<created><datetime>20121115T231410,63+01</datetime></created>
+<modified><datetime dst='true'>20130918T080600,12+02</datetime></modified>
+<revised><datetime dst='true'>20130918T010127,17+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20130918T080600,12+02</datetime></lastaccessed>
+<addedtofile><datetime>20130212T042610,86+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Oliver Busse/O=ulcbs</name><name>CN=Jundland/O=Busse</name><name
+>CN=Echo Base/O=Busse</name><name>CN=Jundland/O=Busse</name><name>CN=Echo Base/O=Busse</name><name
+>CN=Jundland/O=Busse</name><name>CN=Echo Base/O=Busse</name><name>CN=Jundland/O=Busse</name><name
+>CN=Echo Base/O=Busse</name><name>CN=Jundland/O=Busse</name><name>CN=Echo Base/O=Busse</name><name
+>CN=Alderaan/O=Busse</name><name>CN=Jundland/O=Busse</name><name>CN=Echo Base/O=Busse</name><name
+>CN=Jundland/O=Busse</name><name>CN=Echo Base/O=Busse</name><name>CN=Jundland/O=Busse</name><name
+>CN=Echo Base/O=Busse</name><name>CN=Jundland/O=Busse</name><name>CN=Echo Base/O=Busse</name><name
+>CN=Jundland/O=Busse</name><name>CN=Echo Base/O=Busse</name><name>CN=Jundland/O=Busse</name><name
+>CN=Echo Base/O=Busse</name><name>CN=Jundland/O=Busse</name><name>CN=Echo Base/O=Busse</name><name
+>CN=Jundland/O=Busse</name><name>CN=Echo Base/O=Busse</name><name>CN=Jundland/O=Busse</name><name
+>CN=Echo Base/O=Busse</name><name>CN=Alderaan/O=Busse</name><name>CN=Oliver Busse/O=ulcbs</name><name
+>CN=Jundland/O=Busse</name><name>CN=Echo Base/O=Busse</name><name>CN=Alderaan/O=Busse</name><name
+>CN=Echo Base/O=Busse</name><name>CN=Jundland/O=Busse</name><name>CN=Echo Base/O=Busse</name><name
+>CN=Jundland/O=Busse</name><name>CN=Echo Base/O=Busse</name><name>CN=Jundland/O=Busse</name><name
+>CN=Echo Base/O=Busse</name><name>CN=Jundland/O=Busse</name><name>CN=Echo Base/O=Busse</name><name
+>CN=Jundland/O=Busse</name><name>CN=Echo Base/O=Busse</name><name>CN=Jundland/O=Busse</name><name
+>CN=Echo Base/O=Busse</name><name>CN=Oliver Busse/O=ulcbs</name><name>CN=Alderaan/O=Busse</name><name
+>CN=Jundland/O=Busse</name><name>CN=Echo Base/O=Busse</name><name>CN=Jundland/O=Busse</name><name
+>CN=Echo Base/O=Busse</name><name>CN=Jundland/O=Busse</name><name>CN=Echo Base/O=Busse</name><name
+>CN=Alderaan/O=Busse</name><name>CN=Echo Base/O=Busse</name></updatedby>
+<item name='IconBitmap' summary='true'>
+<rawitemdata type='6'>
+AiAgAQAA///////wD///gAH//gAAf/wAAD/4AAAf8AAAD+AAAAfgAAAHwAAAA8AAAAPAAAADgAAA
+AYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAHAAAADwAAAA8AAAAPgAAAH4AAAB/AAAA/4AAAf
+/AAAP/4AAH//gAH///AP//////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAiIiIiAAAAAAAAAAAAAAI
+jPZmZm/IgAAAAAAAAAAIjGZmZmZmZsiAAAAAAAAAjGZmZmZmZmZmyAAAAAAACMZmZmZmZmZmZmyA
+AAAAAIxmZmZmZmZmZmZmyAAAAAjGZmZmZmZmZmZmZmyAAAAIZmbyL2byL2byL2ZmgAAAjGZmIiJm
+IiJmIiJmZsgAAIZmZiIiZiIiZiIiZmZoAADGZmYiImYiImYiImZmbAAI9mZmIiJmIiJmIiJmZm+A
+CGZmZiIiZiIiZiIiZmZmgAhmZmYiImYiImYiImZmZoAIZmZmIiJmIiJmIiJmZmaACGZvIiIiZiIi
+ZiIiIvZmgAhmYiIiImYiImYiIiImZoAIZm8iIi9m8i9m8iIi9maACPZmZmZmZmZmZmZmZmZvgADG
+ZmbyL2byL2byL2ZmbAAAj2ZmIiJmIiJmIiJmZvgAAIxmZiIiZiIiZiIiZmbIAAAI9mbyL2byL2by
+L2ZvgAAACMZmZmZmZmZmZmZmbIAAAACMZmZmZmZmZmZmZsgAAAAACMZmZmZmZmZmZmyAAAAAAACM
+9mZmZmZmZm/IAAAAAAAACIz2ZmZmZm/IgAAAAAAAAAAIiMZmZmyIgAAAAAAAAAAAAACIiIiIAAAA
+AAAAAAACICABAAD/////+A4DgA==
+</rawitemdata></item>
+<item name='$DBTheme'><text>ulc.theme</text></item>
+<item name='$DefaultClientXPage'><text>index.xsp</text></item>
+<item name='$DefaultXPage'><text>index.xsp</text></item>
+<item name='$TITLE'><text>OSnippets
+#2OSnippetsBS</text></item>
+<item name='$LaunchXPageRunOnServer'><text>0</text></item>
+<item name='$FlagsNoRefresh'><text/></item>
+<item name='$TemplateModTime'><datetime dst='true'>20130912T010021,19+02</datetime></item>
+<item name='$TemplateServerName'><text>CN=Echo Base/O=Busse</text></item>
+<item name='$TemplateFileName'><text>/local/notesdata/Privat/osnippets_bs.nsf</text></item>
+<item name='$Flags'><text>J!?</text></item>
+<item name='$PIRCRefreshModTime'><datetime dst='true'>20130918T010125,78+02</datetime></item>
+<item name='$Daos'><text>0</text></item></note>
+

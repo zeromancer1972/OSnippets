@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoDocument var="document1" formName="snippet"></xp:dominoDocument>
+	</xp:this.data>
+	<xp:inputText id="inputText1" value="#{document1.snID}"
+		defaultValue="#{javascript:context.getUser().getRoles()}">
+	</xp:inputText>
+
+</xp:view>

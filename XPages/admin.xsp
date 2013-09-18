@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="#{javascript:@DbTitle()}" pageIcon="/favicon.ico">
+
+
+	<xc:ccResources></xc:ccResources>
+
+
+	<xc:ccCookie></xc:ccCookie>
+
+	<xc:ccHeader></xc:ccHeader>
+	<xp:div styleClass="container ulcContainer">
+		<xp:div styleClass="row-fluid">
+			<xp:div styleClass="span2">
+				<xc:ccNavigation></xc:ccNavigation>
+				
+			</xp:div>
+			<xp:div styleClass="span10">
+				
+			</xp:div>
+		</xp:div>
+	</xp:div>
+
+	<xc:ccFooter></xc:ccFooter>
+</xp:view>

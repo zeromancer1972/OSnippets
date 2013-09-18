@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" pageTitle="Roles">
+	Roles with context, Browser only&#160;
+	<xp:label id="label1">
+		<xp:this.value><![CDATA[#{javascript:@Implode(context.getUser().getRoles(), ", ")}]]></xp:this.value>
+	</xp:label>
+	<xp:br></xp:br>
+	Roles with database, Browser and Client&#160;
+	<xp:label id="label2">
+		<xp:this.value><![CDATA[#{javascript:@Implode(database.queryAccessRoles((session.getEffectiveUserName())), ", ")}]]></xp:this.value>
+	</xp:label>
+</xp:view>

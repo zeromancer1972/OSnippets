@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config>
+  <faces-config-extension>
+    <namespace-uri>http://www.ibm.com/xsp/custom</namespace-uri>
+    <default-prefix>xc</default-prefix>
+  </faces-config-extension>
+  <composite-component>
+    <component-type>ccBootstrapLayout</component-type>
+    <composite-name>ccBootstrapLayout</composite-name>
+    <composite-file>/ccBootstrapLayout.xsp</composite-file>
+    <composite-extension>
+      <designer-extension>
+        <in-palette>true</in-palette>
+        <render-markup/>
+      </designer-extension>
+    </composite-extension>
+    <property>
+      <property-name>fullWidth</property-name>
+      <property-class>boolean</property-class>
+      <description>Select true if you want the layout with full width of the browser window, false to set it with a fixed width of 1000px</description>
+      <property-extension>
+        <required>false</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>navbarTopInverse</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <required>false</required>
+      </property-extension>
+      <description>Define this true if you want the top navbar inverted</description>
+    </property>
+    <property>
+      <property-name>navbarBottomInverse</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <required>false</required>
+      </property-extension>
+      <description>Define this true if you want the bottom navbar inverted</description>
+    </property>
+    <property>
+      <property-name>brandText</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <required>false</required>
+      </property-extension>
+      <description>This is the brand text</description>
+    </property>
+    <property>
+      <property-name>brandLink</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <required>false</required>
+      </property-extension>
+      <description>Specify a link for the brand text</description>
+    </property>
+    <property>
+      <property-name>color</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <required>false</required>
+      </property-extension>
+      <description>You can sepcify a color code like #123456 for a 4px bottom line beneath the top navbar</description>
+    </property>
+    <property>
+      <property-name>navbarTop</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <required>false</required>
+      </property-extension>
+      <description>Set this false to define you own</description>
+    </property>
+    <property>
+      <property-name>navbarBottom</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <required>false</required>
+      </property-extension>
+      <description>Set this false to define you own</description>
+    </property>
+    <property>
+      <property-name>logo</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <required>false</required>
+        <designer-extension>
+          <default-value>false</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>layout</property-name>
+      <property-class>string</property-class>
+      <description>Use values as "2-8-2" to define a 1/12 grid. If you omit the value a 2-8-2 grid will be used</description>
+    </property>
+    <property>
+      <property-name>searchPlaceholder</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <designer-extension>
+          <default-value>search</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
+  </composite-component>
+</faces-config>

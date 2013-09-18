@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<xp:this.data>
+		<xp:dominoDocument var="doc" formName="snippet"
+			action="openDocument">
+			<xp:this.postNewDocument>
+				<xp:setValue binding="#{doc.snID}"
+					value="#{javascript:session.evaluate('@Unique')}">
+				</xp:setValue>
+			</xp:this.postNewDocument>
+		</xp:dominoDocument>
+	</xp:this.data>
+	<xp:this.pageTitle><![CDATA[#{javascript:@DbTitle()+" / "+doc.getItemValueString("snSubject")}]]></xp:this.pageTitle>
+
+	<xp:this.resources>
+		<xp:metaData name="keywords">
+			<xp:this.content><![CDATA[#{javascript:var sntags = @Implode(doc.getItemValue("snTags"),", ");
+var sntype = @Implode(doc.getItemValue("snType"),", ");
+var potags = @Implode(doc.getItemValue("poTags"),", ");
+
+return (doc.getItemValueString("form").equals("snippet")) ? sntags + ", " + sntype : potags}]]></xp:this.content>
+		</xp:metaData>
+
+	</xp:this.resources>
+
+
+
+	<xp:this.afterRenderResponse>
+		<xp:executeScript>
+			<xp:this.script><![CDATA[#{javascript:sessionScope.put("search", null);
+}]]></xp:this.script>
+		</xp:executeScript>
+	</xp:this.afterRenderResponse>
+	<xp:this.afterPageLoad><![CDATA[#{javascript:var uAgent = context.getUserAgent().getUserAgent();
+var externalContext=facesContext.getExternalContext();
+var servletRequest=externalContext.getRequest();
+var queryString=servletRequest.getQueryString(); 
+if ((uAgent.match("iPhone") !== null || param.platfrom=="iphone") || (uAgent.match("Android") !== null || param.platfrom=="android") || uAgent.match("iPad") !== null)
+{
+	print("/m_index.xsp#documentPage?documentId="+currentDocument.getDocument().getUniversalID()+"&action=openDocument");
+	context.redirectToPage("/m_index.xsp#documentPage?documentId="+currentDocument.getDocument().getUniversalID()+"&action=openDocument", true);
+}}]]></xp:this.afterPageLoad>
+	<xc:ccGoogleAnalytics loaded="${javascript:!doc.isEditable()}"></xc:ccGoogleAnalytics>
+	<xc:ccResources></xc:ccResources>
+
+	<xc:ccBootstrapLayout navbarTopInverse="true"
+		searchPlaceholder="Search snippets" color="#08c">
+		<xc:this.brandLink><![CDATA[#{javascript:"/"+@Subset(@DbName(),-1)+"/index.xsp"}]]></xc:this.brandLink>
+		<xc:this.brandText><![CDATA[#{javascript:"OSnippets"}]]></xc:this.brandText>
+		<xp:this.facets>
+			<xp:div xp:key="mainLeftCol">
+
+				<xc:ccNavigation></xc:ccNavigation>
+				<xp:messages id="messages1" layout="table"></xp:messages>
+			</xp:div>
+
+			<xp:div
+				styleClass="ulcTabContent ulcActionbar ui-corner-all"
+				xp:key="mainCenter">
+				<xp:panel rendered="#{javascript:doc.isEditable()}">
+					<xp:table style="width:100%">
+						<xp:tr>
+							<xp:td styleClass="span2">
+								<xp:label value="ID" id="snID_Label1"
+									for="snID1" disableTheme="true">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText value="#{doc.snID}"
+									id="snID1" disableTheme="true" readonly="true">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label id="snSubject_Label1"
+									for="snSubject1" disableTheme="true">
+									<xp:this.value><![CDATA[#{javascript:getLocale("Subject")}]]></xp:this.value>
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText value="#{doc.snSubject}"
+									id="snSubject1" styleClass="span12" required="true">
+									<xp:this.validators>
+										<xp:validateRequired
+											message="Subject is required">
+										</xp:validateRequired>
+									</xp:this.validators>
+								</xp:inputText>
+
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label id="snDesc_Label1"
+									for="snDesc1" disableTheme="true">
+									<xp:this.value><![CDATA[#{javascript:getLocale("Description")}]]></xp:this.value>
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputRichText value="#{doc.snDesc}"
+									id="snDesc1">
+									<xp:this.dojoAttributes>
+										<xp:dojoAttribute name="height"
+											value="100">
+										</xp:dojoAttribute>
+										<xp:dojoAttribute
+											name="toolbarType" value="Slim">
+										</xp:dojoAttribute>
+										<xp:dojoAttribute
+											name="extraPlugins" value="autogrow">
+										</xp:dojoAttribute>
+									</xp:this.dojoAttributes>
+								</xp:inputRichText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label id="snCode_Label1"
+									for="snCode1" disableTheme="true">
+									<xp:this.value><![CDATA[#{javascript:getLocale("Code")}]]></xp:this.value>
+								</xp:label>
+							</xp:td>
+							<xp:td>
+
+								<xp:inputTextarea id="inputTextarea1"
+									value="#{doc.snCode}" styleClass="span12 ulcCode"
+									style="height:30em">
+								</xp:inputTextarea>
+
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:text id="computedField2">
+									<xp:this.value><![CDATA[#{javascript:getLocale("Description2")}]]></xp:this.value>
+								</xp:text>
+							</xp:td>
+							<xp:td>
+								<xp:inputRichText value="#{doc.snDesc2}"
+									id="inputRichText1">
+									<xp:this.dojoAttributes>
+										<xp:dojoAttribute name="height"
+											value="100">
+										</xp:dojoAttribute>
+										<xp:dojoAttribute
+											name="toolbarType" value="Slim">
+										</xp:dojoAttribute>
+										<xp:dojoAttribute
+											name="extraPlugins" value="autogrow">
+										</xp:dojoAttribute>
+									</xp:this.dojoAttributes>
+
+								</xp:inputRichText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>Attachment</xp:td>
+							<xp:td>
+								<xp:fileUpload id="fileUpload1"
+									value="#{doc.snAttachment}">
+								</xp:fileUpload>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td></xp:td>
+							<xp:td>
+								<xp:fileDownload rows="30"
+									id="fileDownload2" displayLastModified="false"
+									value="#{doc.snAttachment}" hideWhen="true"
+									allowDelete="true">
+								</xp:fileDownload>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Tags"
+									id="snTags_Label1" for="snTags1" disableTheme="true">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:div styleClass="ui-widget">
+									<xp:inputText value="#{doc.snTags}"
+										id="snTags1" styleClass="tags span12" multipleSeparator=","
+										multipleTrim="true" disableTheme="true">
+									</xp:inputText>
+								</xp:div>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>Type</xp:td>
+							<xp:td>
+								<xp:listBox id="listBox1"
+									value="#{doc.snType}" disableTheme="true"
+									styleClass="chzn-select span12" multiple="true">
+									<xp:this.attrs>
+										<xp:attr
+											name="data-placeholder">
+											<xp:this.value><![CDATA[#{javascript:getLocale("DataPlaceHolder")}]]></xp:this.value>
+										</xp:attr>
+									</xp:this.attrs>
+									<xp:selectItems>
+										<xp:this.value><![CDATA[#{javascript:getLocale("Types").split(",")}]]></xp:this.value>
+									</xp:selectItems>
+								</xp:listBox>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Author"
+									id="snAuthor_Label1" for="snAuthor1" disableTheme="true">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText value="#{doc.snAuthor}"
+									id="snAuthor1" styleClass="span12"
+									defaultValue="#{javascript:session.getEffectiveUserName()}">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+
+
+						<xp:tr>
+							<xp:this.rendered>false</xp:this.rendered>
+							<xp:td>
+								<xp:label value="Rating"
+									id="snRating_Label1" for="snRating1" disableTheme="true">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText value="#{doc.snRating}"
+									id="snRating1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+
+					</xp:table>
+				</xp:panel>
+				<xp:panel rendered="#{javascript:!doc.isEditable()}">
+					<xp:link escape="true"
+						text="#{javascript:getLocale('Close')}" id="link1"
+						disableTheme="true" styleClass="pull-right btn btn-small">
+						<xp:this.rendered><![CDATA[#{javascript:return !database.queryAccessRoles(session.getEffectiveUserName()).contains('[Admin]')}]]></xp:this.rendered>
+
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete">
+							<xp:this.action>
+								<xp:openPage>
+									<xp:this.name><![CDATA[#{javascript:var page = getCookie('_ulcLastView')
+return (page=='')?'index.xsp':page}]]></xp:this.name>
+								</xp:openPage>
+							</xp:this.action>
+						</xp:eventHandler>
+					</xp:link>
+
+					<h4>
+						<xp:label value="#{doc.snSubject}" id="label1"
+							disableTheme="true">
+						</xp:label>
+
+					</h4>
+
+					<!-- READ ONLY -->
+					<xp:panel styleClass="ulcFormHeader">
+						<xp:label id="label3" disableTheme="true">
+							<xp:this.value><![CDATA[#{javascript:@Name('[CN]', doc.getDocument().getItemValueString('snAuthor')) + ' on ' + doc.getDocument().getCreated().getLocalTime()}]]></xp:this.value>
+						</xp:label>
+						,&#160;filed under&#160;
+						<xp:repeat id="repeat1" rows="30"
+							value="#{doc.snType}" var="snType" disableOutputTag="true">
+
+							<xp:link escape="false" id="link3"
+								disableTheme="true">
+								<xp:this.text><![CDATA[#{javascript:'<span class="badge">'+snType+'</span>'}]]></xp:this.text>
+								<xp:eventHandler event="onclick"
+									submit="true" refreshMode="complete">
+									<xp:this.action><![CDATA[#{javascript:sessionScope.put('search', snType);
+context.redirectToPage('search.xsp');}]]></xp:this.action>
+								</xp:eventHandler>
+							</xp:link>
+							&#160;
+
+						</xp:repeat>
+						<xp:label id="label4" disableTheme="true"
+							style="font-weight:bold" rendered="false">
+							<xp:this.value><![CDATA[#{javascript:@Implode(doc.getDocument().getItemValue('snType'), ", ")}]]></xp:this.value>
+						</xp:label>
+						<xp:br id="br1" rendered="false"></xp:br>
+						<xp:link escape="true" text="Link to this post"
+							id="link2"
+							value="#{javascript:facesContext.getExternalContext().getRequest().getContextPath()+'/id/'+doc.getItemValueString('snID')}"
+							rendered="false">
+						</xp:link>
+						<xp:br id="br2"></xp:br>
+						<xp:br id="br3"></xp:br>
+
+						<xc:ccAddThis
+							rendered="#{javascript:@ClientType() != 'Notes'}">
+						</xc:ccAddThis>
+
+					</xp:panel>
+
+					<xp:inputRichText value="#{doc.snDesc}" id="snDesc"
+						disableTheme="true" styleClass="ulcFormHeader">
+					</xp:inputRichText>
+					<xp:panel style="clear:both">
+						<pre class="prettyprint linenums">
+
+							<code>
+
+								<xp:text escape="true"
+									id="computedField1" value="#{doc.snCode}" styleClass="code">
+								</xp:text>
+							</code>
+						</pre>
+						<xp:this.rendered><![CDATA[#{javascript:!doc.getItemValueString("snCode").equals("")}]]></xp:this.rendered>
+					</xp:panel>
+
+					<xp:inputRichText value="#{doc.snDesc2}"
+						id="inputRichText2" disableTheme="true"
+						styleClass="ulcFormHeader">
+					</xp:inputRichText>
+					<xp:fileDownload rows="30" id="fileDownload1"
+						displayLastModified="false" value="#{doc.snAttachment}"
+						hideWhen="true">
+					</xp:fileDownload>
+					<xp:br id="br4"></xp:br>
+					<xp:label value="Tagged with" id="label6"
+						disableTheme="true" style="font-weight:bold">
+					</xp:label>
+					&#160;
+					<xp:label id="label5" disableTheme="true"
+						rendered="false">
+						<xp:this.value><![CDATA[#{javascript:@Implode(doc.getDocument().getItemValue('snTags'), ", ")}]]></xp:this.value>
+					</xp:label>
+					<xp:repeat id="repeat2" rows="30"
+						value="#{doc.snTags}" var="snTags" disableOutputTag="true">
+						<xp:link escape="false" id="link4">
+							<xp:this.text><![CDATA[#{javascript:'<span class="badge">'+snTags+'</span>'}]]></xp:this.text>
+							<xp:eventHandler event="onclick"
+								submit="true" refreshMode="complete">
+								<xp:this.action><![CDATA[#{javascript:sessionScope.put('search', snTags);
+context.redirectToPage('search.xsp');}]]></xp:this.action>
+							</xp:eventHandler>
+						</xp:link>
+						&#160;
+					</xp:repeat>
+					<xp:div>
+						<xp:link escape="true" text="Leave a comment"
+							id="link5" styleClass="linkComment">
+							<xp:this.rendered><![CDATA[#{javascript:database.queryAccessRoles(session.getEffectiveUserName()).contains('[Admin]') && @ClientType() != 'Notes'}]]></xp:this.rendered>
+							<xp:eventHandler event="onclick"
+								submit="false">
+								<xp:this.script><![CDATA[$('.ulcCommentForm').dialog( {
+			modal : true,
+			title : 'Leave a comment',
+			draggable : false,
+			resizable : false,
+			width: 800,
+			height: 600,
+			buttons : {
+				"Cancel" : function() {
+					$(this).dialog('close')
+				}
+			}
+		})]]></xp:this.script>
+							</xp:eventHandler>
+						</xp:link>
+					</xp:div>
+					<xp:div styleClass="ulcCommentForm"
+						id="commentForm">
+						<xp:panel tagName="iframe"
+							rendered="#{javascript:@ClientType() != 'Notes'}">
+
+							<xp:this.attrs>
+								<xp:attr name="frameborder"
+									value="no">
+								</xp:attr>
+								<xp:attr name="src">
+									<xp:this.value><![CDATA[#{javascript:'/'+@ReplaceSubstring(database.getFilePath(), '\\', '/')+'/comment.xsp?id='+doc.getDocument().getUniversalID()
+}]]></xp:this.value>
+								</xp:attr>
+								<xp:attr name="width" value="100%"></xp:attr>
+								<xp:attr name="height" value="90%"></xp:attr>
+								<xp:attr name="id"
+									value="commentFrame">
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:panel>
+					</xp:div>
+				</xp:panel>
+			</xp:div>
+		</xp:this.facets>
+	</xc:ccBootstrapLayout>
+
+</xp:view>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+
+	<xp:this.afterRenderResponse>
+		<xp:executeScript>
+			<xp:this.script><![CDATA[#{javascript:sessionScope.put("search", null)}]]></xp:this.script>
+		</xp:executeScript>
+	</xp:this.afterRenderResponse>
+	<xp:this.beforePageLoad><![CDATA[#{javascript:sessionScope.remove("offset")
+	sessionScope.remove("offsetready")
+sessionScope.put("currentView", context.getUrlParameter("view"))
+}]]></xp:this.beforePageLoad>
+	<xp:this.resources>
+		<xp:script src="/libSSJSMain.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<xc:ccResources></xc:ccResources>
+
+
+	<xc:ccCookie></xc:ccCookie>
+
+	<xc:ccHeader></xc:ccHeader>
+	<xp:div styleClass="container ulcContainer">
+		<xp:div styleClass="row-fluid">
+			<xp:div styleClass="span2">
+				<xc:ccNavigation></xc:ccNavigation>
+			</xp:div>
+			<xp:div styleClass="span10 ulcTabContent ui-corner-all">
+				<xp:panel id="panelView" disableTheme="true">
+					<xp:viewPanel rows="200" id="pView" var="dataRow"
+						viewStyle="width:100%" pageName="document.xsp">
+						<xp:this.facets>
+							<xp:pager partialRefresh="true" xp:key="headerPager" id="pager1"
+								for="pView">
+								<xp:pagerControl id="pagerControl1" type="Previous">
+
+								</xp:pagerControl>
+								<xp:pagerControl id="pagerControl2" type="Group">
+								</xp:pagerControl>
+								<xp:pagerControl id="pagerControl3" type="Next">
+
+								</xp:pagerControl>
+							</xp:pager>
+
+							<xp:pager partialRefresh="true" xp:key="footerPager" id="pager2"
+								for="pView">
+								<xp:pagerControl id="pagerControl4" type="Previous">
+
+
+								</xp:pagerControl>
+								<xp:pagerControl id="pagerControl5" type="Group">
+								</xp:pagerControl>
+								<xp:pagerControl id="pagerControl6" type="Next">
+
+
+								</xp:pagerControl>
+							</xp:pager>
+						</xp:this.facets>
+
+						<xp:this.data>
+							<xp:dominoView var="view1">
+								<xp:this.viewName><![CDATA[#{javascript:var view = sessionScope.get("currentView");
+return view}]]></xp:this.viewName>
+							</xp:dominoView>
+						</xp:this.data>
+
+
+						<xp:viewColumn id="viewColumn1" contentType="HTML"
+							displayAs="link" openDocAsReadonly="true"
+							columnName="#{javascript:getTitle(view1, 0)}" showCheckbox="true">
+							<xp:this.rendered><![CDATA[#{javascript:return showColumn(view1, 0)}]]></xp:this.rendered>
+							<xp:this.value><![CDATA[#{javascript:return getValue(view1, dataRow, 0)}]]></xp:this.value>
+							<xp:this.facets>
+								<xp:viewColumnHeader xp:key="header1"
+									id="viewColumnHeader1" value="#{javascript:getTitle(view1, 0)}"
+									style="col1">
+								</xp:viewColumnHeader>
+							</xp:this.facets>
+						</xp:viewColumn>
+
+						<xp:viewColumn id="viewColumn2" contentType="HTML"
+							displayAs="link" openDocAsReadonly="true"
+							columnName="#{javascript:getTitle(view1, 1)}">
+							<xp:this.rendered><![CDATA[#{javascript:return showColumn(view1, 1)}]]></xp:this.rendered>
+							<xp:this.value><![CDATA[#{javascript:return getValue(view1, dataRow, 1)}]]></xp:this.value>
+							<xp:this.facets>
+								<xp:viewColumnHeader xp:key="header2"
+									id="viewColumnHeader2" value="#{javascript:getTitle(view1, 1)}"
+									style="col2">
+								</xp:viewColumnHeader>
+							</xp:this.facets>
+						</xp:viewColumn>
+
+						<xp:viewColumn id="viewColumn3" contentType="HTML"
+							displayAs="link" openDocAsReadonly="true"
+							columnName="#{javascript:getTitle(view1, 2)}">
+							<xp:this.rendered><![CDATA[#{javascript:return showColumn(view1, 2)}]]></xp:this.rendered>
+							<xp:this.value><![CDATA[#{javascript:return getValue(view1, dataRow, 2)}]]></xp:this.value>
+							<xp:this.facets>
+								<xp:viewColumnHeader xp:key="header3"
+									id="viewColumnHeader3" value="#{javascript:getTitle(view1, 2)}"
+									style="col3">
+								</xp:viewColumnHeader>
+							</xp:this.facets>
+						</xp:viewColumn>
+
+						<xp:viewColumn id="viewColumn4" contentType="HTML"
+							displayAs="link" openDocAsReadonly="true"
+							columnName="#{javascript:getTitle(view1, 3)}">
+							<xp:this.rendered><![CDATA[#{javascript:return showColumn(view1, 3)}]]></xp:this.rendered>
+							<xp:this.value><![CDATA[#{javascript:return getValue(view1, dataRow, 3)}]]></xp:this.value>
+							<xp:this.facets>
+								<xp:viewColumnHeader xp:key="header4"
+									id="viewColumnHeader4" value="#{javascript:getTitle(view1, 3)}"
+									style="col4">
+								</xp:viewColumnHeader>
+							</xp:this.facets>
+						</xp:viewColumn>
+
+						<xp:viewColumn id="viewColumn5" contentType="HTML"
+							displayAs="link" openDocAsReadonly="true"
+							columnName="#{javascript:getTitle(view1, 4)}">
+							<xp:this.rendered><![CDATA[#{javascript:return showColumn(view1, 4)}]]></xp:this.rendered>
+							<xp:this.value><![CDATA[#{javascript:return getValue(view1, dataRow, 4)}]]></xp:this.value>
+							<xp:this.facets>
+								<xp:viewColumnHeader xp:key="header5"
+									id="viewColumnHeader5" value="#{javascript:getTitle(view1, 4)}"
+									style="col5">
+								</xp:viewColumnHeader>
+							</xp:this.facets>
+						</xp:viewColumn>
+
+						<xp:viewColumn id="viewColumn6" contentType="HTML"
+							displayAs="link" openDocAsReadonly="true"
+							columnName="#{javascript:getTitle(view1, 5)}">
+							<xp:this.rendered><![CDATA[#{javascript:return showColumn(view1, 5)}]]></xp:this.rendered>
+							<xp:this.value><![CDATA[#{javascript:return getValue(view1, dataRow, 5)}]]></xp:this.value>
+							<xp:this.facets>
+								<xp:viewColumnHeader xp:key="header6"
+									id="viewColumnHeader6" value="#{javascript:getTitle(view1, 5)}"
+									style="col6">
+								</xp:viewColumnHeader>
+							</xp:this.facets>
+						</xp:viewColumn>
+
+						<xp:viewColumn id="viewColumn7" contentType="HTML"
+							displayAs="link" openDocAsReadonly="true"
+							columnName="#{javascript:getTitle(view1, 6)}">
+							<xp:this.rendered><![CDATA[#{javascript:return showColumn(view1, 6)}]]></xp:this.rendered>
+							<xp:this.value><![CDATA[#{javascript:return getValue(view1, dataRow, 6)}]]></xp:this.value>
+							<xp:this.facets>
+								<xp:viewColumnHeader xp:key="header7"
+									id="viewColumnHeader7" value="#{javascript:getTitle(view1, 6)}"
+									style="col7">
+								</xp:viewColumnHeader>
+							</xp:this.facets>
+						</xp:viewColumn>
+
+						<xp:viewColumn id="viewColumn8" contentType="HTML"
+							displayAs="link" openDocAsReadonly="true"
+							columnName="#{javascript:getTitle(view1, 7)}">
+							<xp:this.rendered><![CDATA[#{javascript:return showColumn(view1, 7)}]]></xp:this.rendered>
+							<xp:this.value><![CDATA[#{javascript:return getValue(view1, dataRow, 7)}]]></xp:this.value>
+							<xp:this.facets>
+								<xp:viewColumnHeader xp:key="header8"
+									id="viewColumnHeader8" value="#{javascript:getTitle(view1, 7)}"
+									style="col8">
+								</xp:viewColumnHeader>
+							</xp:this.facets>
+						</xp:viewColumn>
+
+						<xp:viewColumn id="viewColumn9" contentType="HTML"
+							displayAs="link" openDocAsReadonly="true"
+							columnName="#{javascript:getTitle(view1, 8)}">
+							<xp:this.rendered><![CDATA[#{javascript:return showColumn(view1, 8)}]]></xp:this.rendered>
+							<xp:this.value><![CDATA[#{javascript:return getValue(view1, dataRow, 8)}]]></xp:this.value>
+							<xp:this.facets>
+								<xp:viewColumnHeader xp:key="header9"
+									id="viewColumnHeader9" value="#{javascript:getTitle(view1, 8)}"
+									style="col9">
+								</xp:viewColumnHeader>
+							</xp:this.facets>
+						</xp:viewColumn>
+
+					</xp:viewPanel>
+				</xp:panel>
+			</xp:div>
+		</xp:div>
+	</xp:div>
+
+	<xc:ccFooter></xc:ccFooter>
+</xp:view>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<div style="margin-top: 30px">
+		All blog posts,&#160;code samples and downloads  licensed
+		under&#160;<a href="http://www.apache.org/licenses/LICENSE-2.0.html" target="_blank">
+			Apache License 2.0</a>
+		.
+	</div>
+
+</xp:view>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xc:ccResources></xc:ccResources>
+	<xp:div>
+
+
+		<xp:this.styleClass><![CDATA[#{javascript:('container '+session.getEffectiveUserName()=='Anonymous') || facesContext.getExternalContext().getRequest().getRequestURI().indexOf("widget")!=-1?'':'ulcActionbar'}]]></xp:this.styleClass>
+		<xp:panel tagName="ul" styleClass="nav nav-pills">
+			<xp:this.rendered><![CDATA[#{javascript:database.queryAccessRoles(session.getEffectiveUserName()).contains('[Admin]')}]]></xp:this.rendered>
+
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown"
+					href="#">
+					<xp:text>
+						<xp:this.value><![CDATA[#{javascript:getLocale("Actions")}]]></xp:this.value>
+					</xp:text>
+					<b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<xp:panel disableOutputTag="true"
+						disableTheme="true">
+						<xp:this.rendered><![CDATA[#{javascript:return false;
+facesContext.getExternalContext().getRequest().getRequestURI().indexOf("widget")==-1}]]></xp:this.rendered>
+						<li>
+							<xp:link escape="true">
+								<xp:this.text><![CDATA[#{javascript:getLocale("DisplayAsWidget")}]]></xp:this.text>
+								<xp:eventHandler event="onclick"
+									submit="true" refreshMode="complete">
+									<xp:this.action>
+										<xp:openPage
+											name="/osnippets_widget.xsp">
+										</xp:openPage>
+									</xp:this.action>
+								</xp:eventHandler>
+							</xp:link>
+						</li>
+						<li class="divider"></li>
+					</xp:panel>
+					<li>
+						<xp:link escape="true" id="link1"
+							disableTheme="true">
+							<xp:this.text><![CDATA[#{javascript:getLocale("CreateSnippet")}]]></xp:this.text>
+							<xp:eventHandler event="onclick"
+								submit="true" refreshMode="complete">
+								<xp:this.action>
+									<xp:openPage name="/snippet.xsp"
+										target="newDocument">
+									</xp:openPage>
+								</xp:this.action>
+							</xp:eventHandler>
+						</xp:link>
+					</li>
+					<li>
+						<xp:link escape="true" id="link2"
+							disableTheme="true">
+							<xp:this.text><![CDATA[#{javascript:getLocale("CreateBlogEntry")}]]></xp:this.text>
+							<xp:eventHandler event="onclick"
+								submit="true" refreshMode="complete">
+								<xp:this.action>
+									<xp:openPage name="/post.xsp"
+										target="newDocument">
+									</xp:openPage>
+								</xp:this.action>
+							</xp:eventHandler>
+						</xp:link>
+					</li>
+					<xp:panel disableOutputTag="true"
+						rendered="#{javascript:context.getUrl().toString().indexOf('snippet.xsp')!=-1 || context.getUrl().toString().indexOf('post.xsp')!=-1}">
+						<li class="divider"></li>
+						<li>
+							<xp:link escape="true" id="link7"
+								disableTheme="true">
+								<xp:this.text><![CDATA[#{javascript:getLocale("Delete")}]]></xp:this.text>
+								<xp:eventHandler event="onclick"
+									submit="true" refreshMode="complete" immediate="true">
+									<xp:this.action>
+
+										<xp:actionGroup>
+											<xp:deleteDocument>
+												<xp:this.name><![CDATA[#{javascript:var page = getCookie('_ulcLastView')
+return (page=='')?'index.xsp':page}]]></xp:this.name>
+												<xp:this.message><![CDATA[#{javascript:getLocale("txtConfirmDelete")}]]></xp:this.message>
+											</xp:deleteDocument>
+											<xp:openPage>
+												<xp:this.name><![CDATA[#{javascript:getCookie("_ulcLastView")}]]></xp:this.name>
+											</xp:openPage>
+										</xp:actionGroup>
+									</xp:this.action></xp:eventHandler>
+							</xp:link>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<xp:link escape="true" id="link6"
+								disableTheme="true"
+								rendered="#{javascript:!doc.isEditable()}">
+
+								<xp:this.text><![CDATA[#{javascript:getLocale("Edit")}]]></xp:this.text>
+								<xp:eventHandler event="onclick"
+									submit="true" refreshMode="complete">
+									<xp:this.action>
+										<xp:executeScript>
+											<xp:this.script><![CDATA[#{javascript:var url=view.getPageName()+"?action=editDocument&documentId="+doc.getNoteID();
+
+context.redirectToPage(url);}]]></xp:this.script>
+										</xp:executeScript>
+									</xp:this.action>
+								</xp:eventHandler>
+							</xp:link>
+						</li>
+						<li>
+							<xp:link escape="true" id="link3"
+								disableTheme="true" rendered="#{javascript:doc.isEditable()}">
+								<xp:this.text><![CDATA[#{javascript:getLocale("Save")}]]></xp:this.text>
+								<xp:eventHandler event="onclick"
+									submit="true" refreshMode="complete">
+									<xp:this.action>
+
+										<xp:actionGroup>
+
+
+
+											<xp:saveDocument
+												var="doc">
+											</xp:saveDocument>
+
+										</xp:actionGroup>
+									</xp:this.action>
+								</xp:eventHandler>
+							</xp:link>
+						</li>
+						<li>
+							<xp:link escape="true" id="link4"
+								disableTheme="true" rendered="#{javascript:doc.isEditable()}">
+								<xp:this.text><![CDATA[#{javascript:getLocale("SaveClose")}]]></xp:this.text>
+								<xp:eventHandler event="onclick"
+									submit="true" refreshMode="complete">
+									<xp:this.action>
+
+										<xp:actionGroup>
+											<xp:saveDocument
+												var="doc">
+											</xp:saveDocument>
+
+											<xp:openPage
+												name="#{javascript:getCookie('_ulcLastView')}">
+											</xp:openPage>
+										</xp:actionGroup>
+									</xp:this.action>
+								</xp:eventHandler>
+							</xp:link>
+						</li>
+						<li>
+							<xp:link escape="true" id="link5"
+								disableTheme="true">
+								<xp:this.text><![CDATA[#{javascript:getLocale("Close")}]]></xp:this.text>
+								<xp:eventHandler event="onclick"
+									submit="true" refreshMode="complete" immediate="true">
+									<xp:this.action>
+										<xp:openPage>
+											<xp:this.name><![CDATA[#{javascript:var page = getCookie('_ulcLastView')
+return (page=='')?'index.xsp':page}]]></xp:this.name>
+										</xp:openPage>
+									</xp:this.action>
+								</xp:eventHandler>
+							</xp:link>
+						</li>
+
+					</xp:panel>
+
+				</ul>
+			</li>
+		</xp:panel>
+	</xp:div>
+</xp:view>

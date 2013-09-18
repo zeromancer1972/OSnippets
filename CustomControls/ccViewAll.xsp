@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:viewPanel rows="30" id="viewPanel" viewStyle="width:100%">
+		<xp:this.facets>
+			<xp:pager partialRefresh="true" layout="Previous Group Next"
+				xp:key="headerPager" id="pager1">
+			</xp:pager>
+		</xp:this.facets>
+		<xp:this.data>
+			<xp:dominoView var="view1" viewName="(All)">
+			</xp:dominoView>
+		</xp:this.data>
+		<xp:viewColumn columnName="Form" id="viewColumn1">
+			<xp:viewColumnHeader value="#" id="viewColumnHeader1"></xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="$1" id="viewColumn2">
+			<xp:viewColumnHeader value="$1" id="viewColumnHeader2"></xp:viewColumnHeader>
+		</xp:viewColumn>
+	</xp:viewPanel>
+
+</xp:view>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B0F005AC941" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="1f2" sequence="3" unid="FE41013806EE7223C1257B0D006E1B4B">
+<created><datetime>20130209T210239,47+01</datetime></created>
+<modified><datetime dst="true">20130406T183039,04+02</datetime></modified>
+<revised><datetime dst="true">20130405T225606,86+02</datetime></revised>
+<lastaccessed><datetime dst="true">20130406T183039,04+02</datetime></lastaccessed>
+<addedtofile><datetime>20130212T042612,82+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Oliver Busse/O=ulcbs</name></updatedby>
+<item name="$FlagsExt"><text>D</text></item>
+<item name="$ImagesWide" sign="true"><number>1</number></item>
+<item name="$ImagesHigh" sign="true"><number>1</number></item>
+<item name="$ImagesColorize" sign="true"><number>0</number></item>
+
+
+<item name="$MimeType" sign="true"><text>image/gif</text></item>
+<item name="$FileModDT" sign="true"><datetime dst="true">20110415T191808,81+02</datetime></item>
+<item name="$ImageNames" sign="true"><text>favicon.ico</text></item>
+<item name="$EditFilePath"><text>C:\Users\Oliver\AppData\Local\Temp\notes314557\~favicon.ico</text></item>
+<item name="$Flags"><text>34CiQ</text></item>
+<item name="$TITLE" sign="true"><textlist><text>ulc_favicon.ico</text><text>ulc_favicon.ico</text></textlist></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item></note>

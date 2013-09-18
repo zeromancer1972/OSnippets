@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='C1257B0F005AC941'>
+<noteinfo noteid='3e6' unid='A24BC71696C30ACEC1257B310063FA9D' sequence='5'>
+<created><datetime>20130317T191202,21+01</datetime></created>
+<modified><datetime dst='true'>20130408T095222,28+02</datetime></modified>
+<revised><datetime dst='true'>20130407T052900,25+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20130408T095222,28+02</datetime></lastaccessed>
+<addedtofile><datetime>20130318T130545,55+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Oliver Busse/O=ulcbs</name></updatedby>
+<wassignedby><name>CN=Oliver Busse/O=ulcbs</name></wassignedby>
+<item name='$Comment' sign='true'><text/></item>
+<item name='$HTMLCode' sign='true'>
+<rawitemdata type='1'>
+X/8QAAIADwAHAAAAAAAAAA==
+</rawitemdata></item>
+<item name='$TITLE'><text>post</text></item>
+<item name='$Info' sign='true'>
+<rawitemdata type='1'>
+hhgBAIAAAAAAgAAAAQABAP///wAQAAAA
+</rawitemdata></item>
+<item name='$Flags'><text/></item>
+<item name='$XPageAlt'><text>post.xsp</text></item>
+<item name='$XPageAltClient'><text>post.xsp</text></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>post</text></item>
+<item name='poID' placeholder='true'>
+<rawitemdata type='0'>
+</rawitemdata></item>
+<item name='poSubject' placeholder='true'>
+<rawitemdata type='0'>
+</rawitemdata></item>
+<item name='poBody' placeholder='true'>
+<rawitemdata type='0'>
+</rawitemdata></item>
+<item name='poDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='poTags' placeholder='true'>
+<rawitemdata type='0'>
+</rawitemdata></item>
+<item name='$Fields'><textlist><text>poTags</text><text>poDate</text><text
+>poBody</text><text>poSubject</text><text>poID</text></textlist></item>
+<item name='$Body' sign='true'>
+<rawitemdata type='1'>
+gQKC/1oAAQAAAAAAAAAAAKAFAACgBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAABAAAAAJSHAAAAAAAAAAAAAAAAAQAAAAQAAACDBAEAhf8IAAEAAArdBgAAiv/+/1AA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AHgAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAIr/KACKAAAFADACAAAAAAAAAgEAAAoAAAAAAAAAAAQAAAAAAHBv
+SURiDgEAhAAAAAAAAAAAAN4GAACK/4X/CAABAAAK3QYAAIr//v9QAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAeAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AACK/y4AigAABQAwAgAAAAAAAAIBAAAKAAAAAAAAAAAJAAAAAABwb1N1YmplY3QAYg4BAIQAAAAA
+AAAAAADeBgAAiv+F/wgAAQAACt0GAACK//7/UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAHgAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiv8qAIIAAQAA
+AAIAAAAAAAACAQAACgAAAAAAAAAABgAAAAAAcG9Cb2R5Yg4BAIQAAAAAAAEAAADeBgAAiv+F/wgA
+AQAACt0GAACK//7/VAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHgAeAAAAAAA
+AEyAAwAAAAAAAQICAgEBAQEHBAIAAAAAAAAAAAAAAAAAIC4uOor/KgCKAAAEADACAAAAAAEAAgEA
+AAoAAAAAAAAAAAYAAAAAAHBvRGF0Zd4GAACK/4X/CAABAAAK3QYAAIr//v9QAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAACK/yoAigABBQYwAgAAAAAAAAIBAAAKAAAAAAAAAAAGAAAAAABwb1RhZ3NiDgEAhAAA
+AAAAAAAAAN4GAACK/4X/CAABAAAK
+</rawitemdata></item></note>
+

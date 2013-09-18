@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B0F005AC941" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="5a6" sequence="5" unid="EEE75C31E7A82472C1257BB800714593">
+<created><datetime dst="true">20130730T223713,79+02</datetime></created>
+<modified><datetime dst="true">20130817T110302,37+02</datetime></modified>
+<revised><datetime dst="true">20130802T150241,94+02</datetime></revised>
+<lastaccessed><datetime dst="true">20130817T110302,37+02</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20130817T110302,37+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Oliver Busse/O=ulcbs</name></updatedby>
+<wassignedby><name>CN=Oliver Busse/O=ulcbs</name></wassignedby>
+<item name="$Flags"><text>34567Cg~[</text></item>
+<item name="$TITLE"><text>com/olb/NavigationController.java</text></item>
+
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>com/olb/NavigationController.java</text></item>
+
+</note>

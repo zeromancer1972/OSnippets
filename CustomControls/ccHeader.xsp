@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xp:this.resources>
+		<xp:script src="/libSSJSMain.jss" clientSide="false"></xp:script>
+		<xp:bundle src="/meta_description.properties" var="meta"></xp:bundle>
+	</xp:this.resources>
+	<div class="navbar navbar-fixed-top navbar-inverse ulcHeader">
+		<div class="navbar-inner ulcNavbar">
+			<div class="container row-fluid">
+				<div class="span8">
+
+					<xp:link styleClass="brand ulcAppLogo" value="#"
+						id="link6">
+						<xp:this.text><![CDATA[#{javascript:meta['brand']}]]></xp:this.text>
+						<xp:this.attrs>
+							<xp:attr name="title"
+								value="#{javascript:database.getFilePath()}">
+
+							</xp:attr>
+						</xp:this.attrs>
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete">
+							<xp:this.action>
+								<xp:openPage name="/index.xsp"></xp:openPage>
+							</xp:this.action>
+						</xp:eventHandler>
+					</xp:link>
+
+					<ul class="nav">
+
+						<li
+							class="#{javascript: return (context.getUrl().toString().indexOf('index.xsp')!=-1)?'active':''}">
+							<xp:link text="Main" value="/index.xsp" rendered="false"></xp:link>
+						</li>
+						<li>
+							<xp:link value="http://www.oliverbusse.com"
+								target="_blank">
+								<xp:this.text><![CDATA[#{javascript:getLocale("VisitMe")}]]></xp:this.text>
+							</xp:link>
+						</li>
+						<li>
+							<xp:link value="" target="_blank"
+								id="link2">
+								<xp:this.text><![CDATA[#{javascript:getLocale("Subscribe")}]]></xp:this.text>
+								<xp:eventHandler event="onclick"
+									submit="true" refreshMode="complete">
+									<xp:this.action>
+										<xp:openPage name="/rss.xsp"></xp:openPage>
+									</xp:this.action>
+								</xp:eventHandler>
+							</xp:link>
+						</li>
+						<li>
+						<xp:link escape="true" id="link7"
+							target="_blank" value="https://twitter.com/zeromancer1972">
+							<xp:this.text><![CDATA[#{javascript:getLocale("Follow")}]]></xp:this.text>
+						</xp:link>
+						</li>
+						<xp:panel tagName="li"
+							styleClass="#{javascript:(context.getUrl().toString().indexOf('disclaimer.xsp')!=-1)?'active':''}">
+							<xp:link escape="true" id="link5">
+								<xp:this.text><![CDATA[#{javascript:getLocale("Disclaimer")}]]></xp:this.text>
+								<xp:eventHandler event="onclick"
+									submit="true" refreshMode="complete">
+									<xp:this.action>
+										<xp:openPage
+											name="/disclaimer.xsp">
+										</xp:openPage>
+									</xp:this.action>
+								</xp:eventHandler>
+							</xp:link>
+						</xp:panel>
+						<li>
+						<xp:link escape="true" id="link8">
+						<xp:this.text><![CDATA[#{javascript:getLocale("MobileVersion")}]]></xp:this.text>
+						<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+							<xp:this.action>
+								<xp:openPage name="/m_index.xsp"></xp:openPage>
+							</xp:this.action></xp:eventHandler></xp:link>
+						</li>
+						<li
+							class="#{javascript: return (context.getUrl().toString().indexOf('admin.xsp')!=-1 || context.getUrl().toString().indexOf('profiles.xsp')!=-1)?'active':''}">
+							<xp:link text="Administration" value="/admin.xsp">
+								<xp:this.rendered><![CDATA[#{javascript:return false
+database.queryAccessRoles(session.getEffectiveUserName()).contains('[Admin]')}]]></xp:this.rendered>
+							</xp:link>
+						</li>
+						<li>
+							<xp:link id="link1"
+								value="#{javascript:return '/names.nsf?logout&amp;redirectto=/'+@ReplaceSubstring(session.getCurrentDatabase().getFilePath(), '\\', '/')}">
+								<xp:this.rendered><![CDATA[#{javascript:return (session.getEffectiveUserName() != "Anonymous") && @ClientType() != 'Notes'}]]></xp:this.rendered>
+								<xp:this.text><![CDATA[#{javascript:getLocale("Logout")}]]></xp:this.text>
+							</xp:link>
+						</li>
+						<li>
+							<xp:link id="link3"
+								value="#{javascript:return '/names.nsf/?login&amp;redirectto=/'+@ReplaceSubstring(session.getCurrentDatabase().getFilePath(), '\\', '/')}">
+								<xp:this.rendered><![CDATA[#{javascript:return (session.getEffectiveUserName() == "Anonymous") && @ClientType() != 'Notes'}]]></xp:this.rendered>
+								<xp:this.text><![CDATA[#{javascript:getLocale("Login")}]]></xp:this.text>
+							</xp:link>
+						</li>
+					</ul>
+				</div>
+				<div class="span4">
+					<div class="pull-right">
+						<ul class="nav">
+							<li>
+								<xp:link escape="true" id="link4">
+									<xp:this.text><![CDATA[#{javascript:var username = session.getEffectiveUserName();
+if(username == "Anonymous"){
+	return 'you are not logged in';
+}
+@Name("[Abbreviate]", username)+" "+@Implode(database.queryAccessRoles(session.getEffectiveUserName()), ", ")}]]></xp:this.text>
+									<xp:this.rendered><![CDATA[#{javascript:session.getEffectiveUserName()!="Anonymous"}]]></xp:this.rendered>
+								</xp:link>
+							</li>
+
+
+						</ul>
+
+						<xp:image styleClass="about pull-right" id="image1"
+							url="/oli_small.jpg" title="that's me!">
+
+						</xp:image>
+
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+</xp:view>

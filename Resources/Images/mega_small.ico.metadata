@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B0F005AC941" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="1e2" sequence="1" unid="56F0E0E34508823EC1257B0F006326BC">
+<created><datetime>20130211T190259,80+01</datetime></created>
+<modified><datetime>20130212T042612,74+01</datetime></modified>
+<revised><datetime>20130211T190259,84+01</datetime></revised>
+<lastaccessed><datetime>20130212T042612,74+01</datetime></lastaccessed>
+<addedtofile><datetime>20130212T042612,74+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Oliver Busse/O=ulcbs</name></updatedby>
+<wassignedby><name>CN=Oliver Busse/O=ulcbs</name></wassignedby>
+<item name="$TITLE"><text>mega_small.ico</text></item>
+<item name="$Flags"><text>34CiQ</text></item>
+<item name="$FlagsExt"><text>D</text></item>
+<item name="$ImagesWide" sign="true"><number>1</number></item>
+<item name="$ImagesHigh" sign="true"><number>1</number></item>
+<item name="$ImagesColorize" sign="true"><number>0</number></item>
+
+
+<item name="$MimeType" sign="true"><text>image/gif</text></item>
+<item name="$FileModDT" sign="true"><datetime>20130211T190248,03+01</datetime></item>
+<item name="$ImageNames" sign="true"><text>mega_small.ico</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item></note>

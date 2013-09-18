@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note default='true' class='helpaboutdocument' xmlns='http://www.lotus.com/dxl'
+ version='9.0' replicaid='C1257B0F005AC941'>
+<noteinfo noteid='402' unid='43F2F0D5BF30EA75C1257B4F005EA874' sequence='0'>
+<created><datetime dst='true'>20130416T191355,08+02</datetime></created>
+<modified><datetime dst='true'>20130429T084840,63+02</datetime></modified>
+<revised><datetime dst='true'>20130427T004906,06+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20130429T084840,63+02</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20130416T191355,15+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Oliver Busse/O=ulcbs</name></updatedby>
+<wassignedby><name>CN=Oliver Busse/O=ulcbs</name></wassignedby>
+<item name='$HTMLCode' sign='true'>
+<rawitemdata type='1'>
+</rawitemdata></item>
+<item name='$Info' sign='true'>
+<rawitemdata type='1'>
+hhgBAIAAAAAAgAAAAQABAP///wAQAAAA
+</rawitemdata></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item>
+<item name='$Body' sign='true'>
+<rawitemdata type='1'>
+gQKC/1oAAQAAAAAAAAAAAKAFAACgBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAABAAAAAJSHAAAAAAAAAAAAAAAAAQAAAAQAAACDBAEAhf8IAAEBABKBAoMEAQCF/1oA
+AQEAEklmIHlvdSBsaWtlIHRoaXMgdGVtcGxhdGUsIHBsZWFzZSBsZXQgbWUga25vdy4gSWYgeW91
+IGRvbid0LCBwbGVhc2UgZG8gaXQsIHRvbyA6LSmBAoMEAQCF/wgAAQEAEoECgwQBAIX/SQABAQAS
+SSBhbHdheXMgYXBwcmVjaWF0ZSBhbnkgY29tbWVudCBhbmQvb3Igc3VnZ2VzdGlvbnMgdG8gaW1w
+cm92ZSBpdC4AgQKDBAEAhf8IAAEBABKBAoMEAQCF/xgAAQEAEm9idXNzZUBnbWFpbC5jb20=
+</rawitemdata></item>
+<item name='$Flags'><text>R</text></item></note>
+

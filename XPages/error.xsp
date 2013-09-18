@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="#{javascript:@DbTitle()}">
+
+
+	<xp:this.afterRenderResponse>
+		<xp:executeScript>
+			<xp:this.script><![CDATA[#{javascript:sessionScope.put("search", null)}]]></xp:this.script>
+		</xp:executeScript>
+	</xp:this.afterRenderResponse>
+	<xc:ccResources></xc:ccResources>
+
+
+	<xc:ccCookie></xc:ccCookie>
+
+	<xc:ccHeader></xc:ccHeader>
+	<xp:div styleClass="container ulcContainer">
+		<xp:div styleClass="row-fluid">
+			<xp:div styleClass="span2">
+				<xc:ccNavigation></xc:ccNavigation>
+			</xp:div>
+			<xp:div styleClass="span10 ulcTabContent ui-corner-all">
+			<h3>Ooops... something did not work as intended.</h3>
+				<xp:div styleClass="alert">
+					<xp:text escape="true" id="computedField1" value="#{requestScope.error}">
+					</xp:text>
+				</xp:div>
+				<xp:section id="section1" initClosed="true"
+					header="error details">
+					<xp:text escape="true" id="computedField"
+						style="font-size:12px">
+						<xp:this.value>
+							<![CDATA[#{javascript:var stackTrace ="";
+var trace = requestScope.error.getStackTrace() ;
+
+for( var i = 0; i < trace.length; i++){
+stackTrace += trace[i] + '\n';
+}
+
+return stackTrace;
+}]]>
+						</xp:this.value>
+					</xp:text>
+				</xp:section>
+			</xp:div>
+		</xp:div>
+	</xp:div>
+
+
+	<xc:ccFooter></xc:ccFooter>
+</xp:view>

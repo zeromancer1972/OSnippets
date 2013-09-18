@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+
+	<xp:div styleClass="ulcNavigation">
+		<xp:this.rendered><![CDATA[#{javascript:return database.queryAccessRoles(session.getEffectiveUserName()).contains('[Admin]') && context.getUrl().toString().indexOf('admin.xsp')==-1}]]></xp:this.rendered>
+		<ul class="nav nav-pills nav-stacked ulcFixed">
+			<li class="nav-header">Other views (all)</li>
+			<xp:repeat id="repeat1" rows="30" var="views"
+				disableOutputTag="true">
+				<xp:this.value><![CDATA[#{javascript:// return a sorted list of view names
+var allViews = database.getViews()
+var viewNames = new Array()
+var it:java.util.Iterator = allViews.iterator();
+while(it.hasNext()){
+	viewNames.push(it.next().getName())
+}
+viewNames.sort()
+return viewNames}]]></xp:this.value>
+				<xp:panel tagName="li"
+					styleClass="#{javascript: return (context.getUrlParameter('view').indexOf(views)!=-1)?'active':''}">
+					<xp:link escape="true" text="#{javascript:views}"
+						id="link1" disableTheme="true">
+
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete">
+							<xp:this.action>
+								<xp:openPage
+									name="#{javascript:return 'view.xsp?view='+views}">
+
+								</xp:openPage>
+							</xp:this.action>
+						</xp:eventHandler>
+					</xp:link>
+				</xp:panel>
+			</xp:repeat>
+		</ul>
+
+	</xp:div>
+</xp:view>

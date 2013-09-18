@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<div id="about" style="display:none">
+		<div>
+			Server:&#160;
+			<xp:label value="#{javascript:database.getServer()}" id="label1"></xp:label>
+		</div>
+		<div>
+			File:&#160;
+			<xp:label value="#{javascript:database.getFilePath()}" id="label2"></xp:label>
+		</div>
+		<xp:br></xp:br>
+		</div>
+</xp:view>

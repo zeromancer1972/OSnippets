@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="#{javascript:@DbTitle()}">
+	<xp:this.afterRenderResponse>
+		<xp:executeScript>
+			<xp:this.script><![CDATA[#{javascript:sessionScope.put("search", null)}]]></xp:this.script>
+		</xp:executeScript>
+	</xp:this.afterRenderResponse>
+
+	<xp:this.beforePageLoad><![CDATA[#{javascript:sessionScope.remove("offset")
+	sessionScope.remove("offsetready")
+sessionScope.put("currentView", context.getUrlParameter("view"))
+}]]></xp:this.beforePageLoad>
+	<xp:this.resources>
+		<xp:script src="/libSSJSMain.jss" clientSide="false"></xp:script>
+
+		<xp:metaData name="description">
+			<xp:this.content><![CDATA[#{javascript:meta['desc']}]]></xp:this.content>
+		</xp:metaData>
+		<xp:metaData name="keywords">
+			<xp:this.content><![CDATA[#{javascript:meta['keywords']}]]></xp:this.content>
+		</xp:metaData>
+		<xp:bundle src="/meta_description.properties" var="meta"></xp:bundle>
+	</xp:this.resources>
+	<xc:ccGoogleAnalytics></xc:ccGoogleAnalytics>
+
+
+	<xc:ccResources></xc:ccResources>
+
+
+	<xc:ccCookie></xc:ccCookie>
+
+
+	<xc:ccBootstrapLayout navbarTopInverse="true"
+		searchPlaceholder="Search snippets" color="#08c">
+
+		<xc:this.brandLink><![CDATA[#{javascript:"index.xsp"}]]></xc:this.brandLink>
+		<xc:this.brandText><![CDATA[#{javascript:"OSnippets"}]]></xc:this.brandText>
+		<xp:this.facets>
+			<xp:div xp:key="mainCenter"
+				styleClass="ulcTabContent ui-corner-all"
+				disableTheme="true">
+				<xc:ccView
+					rendered="#{javascript:context.getUrlParameter('view')!=''}">
+					<xc:this.viewName><![CDATA[#{javascript:var viewC = context.getUrlParameter('view')
+return (viewC=='')?'snDate':viewC}]]></xc:this.viewName>
+				</xc:ccView>
+				<xc:ccSnippets
+					rendered="#{javascript:context.getUrlParameter('view')==''}">
+				</xc:ccSnippets>
+			</xp:div>
+			<xc:ccNavigation xp:key="mainLeftCol"></xc:ccNavigation>
+		</xp:this.facets>
+	</xc:ccBootstrapLayout>
+
+</xp:view>

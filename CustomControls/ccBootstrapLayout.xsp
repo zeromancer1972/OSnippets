@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+
+	<!--
+		page links for the top navbar are now provided by the PageController
+		bean
+	-->
+
+	<!-- top navbar -->
+	<xp:div id="topNavbar"
+		styleClass="#{javascript:(compositeData.navbarTopInverse)?'navbar navbar-fixed-top navbar-inverse':'navbar navbar-fixed-top '}"
+		style="#{javascript:(!!compositeData.color)?'border-bottom:solid 4px '+compositeData.color:''}">
+		<xp:div
+			styleClass="#{javascript:(compositeData.navbarTopInverse)?'navbar-inner ulcNavbar':'navbar-inner'}">
+			<xp:div
+				styleClass="#{javascript: return (!!compositeData.fullWidth) ? (compositeData.fullWidth) ? 'full' :'container' :'container'}">
+				<xp:panel tagName="span" rendered="#{javascript:compositeData.logo}"
+					style="float:left" disableTheme="true">
+					<xp:callback facetName="brandLogo"></xp:callback>
+				</xp:panel>
+
+				<xp:text escape="false" id="computedField1"
+					rendered="#{javascript:!compositeData.logo}" disableTheme="true">
+					<xp:this.value><![CDATA[${javascript:var text = (!!compositeData.brandText) ? compositeData.brandText : @DbTitle()
+if(!!compositeData.brandLink){
+	return '<a class="brand" href="'+compositeData.brandLink+'">'+text+'</a>'
+} else {
+	return '<a class="brand">'+text+'</a>'
+}}]]></xp:this.value>
+
+				</xp:text>
+				<xp:callback id="navbarTop" facetName="navbarTop"></xp:callback>
+				<xp:panel tagName="ul" styleClass="nav"
+					rendered="#{javascript:compositeData.navbarTop == null || compositeData.navbarTop}">
+
+					<xp:repeat disableOutputTag="true" id="repeat1" rows="30"
+						var="nav" value="#{javascript:return Pages.items}">
+
+						<xp:panel tagName="li"
+							styleClass="#{javascript:(view.getPageName().indexOf(nav.url)!=-1)?'active':''}"
+							rendered="#{nav.render}">
+							<a
+								href="#{javascript:(nav.url.indexOf('http')==0)?nav.url:facesContext.getExternalContext().getRequest().getContextPath()+'/'+nav.url}"
+								target="#{javascript:(nav.newwindow)?'_blank':'_self'}">
+								<xp:text rendered="#{javascript:nav.icon!=''}" tagName="i"
+									styleClass="#{javascript:nav.icon} #{javascript:(compositeData.navbarTopInverse)?'icon-white':''}">
+								</xp:text>
+								<xp:text value="&#160;" rendered="#{javascript:nav.icon!=''}">
+								</xp:text>
+								<xp:text value="#{javascript:nav.label}">
+								</xp:text>
+							</a>
+						</xp:panel>
+					</xp:repeat>
+				</xp:panel>
+
+			</xp:div>
+		</xp:div>
+	</xp:div>
+	<!-- main content -->
+	<xp:div style="padding-top: 50px" id="mainContainer"
+		styleClass="#{javascript: return (compositeData.fullWidth) ? 'full' : 'container'}">
+
+		<!-- action bar -->
+		<xp:callback facetName="mainActionbar"></xp:callback>
+		<!-- main top -->
+
+		<!-- main layout -->
+		<xp:div disableTheme="true" styleClass="row-fluid">
+			<xp:div id="leftCol" disableTheme="true"
+				styleClass="span#{javascript:(compositeData.layout)?compositeData.layout.split('-')[0]:'2'} ui-corner-all panel"
+				rendered="#{javascript:this.children.length!=0}">
+				<xp:callback facetName="mainLeftCol"></xp:callback>
+			</xp:div>
+			<xp:div disableTheme="true" rendered="#{javascript:this.children.length!=0}">
+				<xp:this.styleClass><![CDATA[#{javascript:var span=12;
+if(compositeData.layout) return "span"+compositeData.layout.split("-")[1];
+if(getComponent('leftCol').isRendered()) span-=2;
+if(getComponent('rightCol').isRendered()) span-=2;
+return 'span'+span}]]></xp:this.styleClass>
+				<xp:callback facetName="mainCenter"></xp:callback>
+				<xp:label>
+					<xp:this.value><![CDATA[#{javascript:facesContext.getAttributes().get("param")}]]></xp:this.value>
+				</xp:label>
+			</xp:div>
+			<xp:div id="rightCol" disableTheme="true"
+				styleClass="span#{javascript:(compositeData.layout)?compositeData.layout.split('-')[2]:'2'} ui-corner-all panel"
+				rendered="#{javascript:this.children.length!=0}">
+				<xp:callback facetName="mainRightCol"></xp:callback>
+			</xp:div>
+		</xp:div>
+	</xp:div>
+
+	<!-- bottom navbar -->
+	<xp:div id="bottomNavbar"
+		styleClass="navbar navbar-fixed-bottom #{javascript:(compositeData.navbarBottomInverse)?'navbar-inverse':''}">
+		<xp:div
+			styleClass="navbar-inner #{javascript:(compositeData.navbarBottomInverse)?'ulcNavbar':''}">
+
+			<xp:div
+				styleClass="row-fluid #{javascript: return (!!compositeData.fullWidth) ? (compositeData.fullWidth) ? 'full' :'container' :'container'}">
+
+				<!-- footer -->
+				<xp:panel disableTheme="true"
+					rendered="#{javascript:compositeData.navbarBottom == null || compositeData.navbarBottom}">
+					<!-- legal -->
+					<xp:div disableTheme="true" styleClass="span6 ulcFooterText">
+						<span class="aboutclick">
+							<xc:ccLegal></xc:ccLegal>
+						</span>
+					</xp:div>
+				</xp:panel>
+				<xp:callback facetName="navbarBottom" disableTheme="true" />
+				<!-- search form -->
+				<xp:div
+					styleClass="span6 navbar-search #{javascript: return (!!compositeData.fullWidth) ? (compositeData.fullWidth) ? 'fullright' :'' :''}"
+					rendered="#{javascript:database.isFTIndexed()}" disableTheme="true">
+					<xp:panel disableTheme="true" tagName="div" styleClass="form-search">
+						<xp:div styleClass="input-append pull-right" disableTheme="true">
+
+
+							<xp:inputText disableTheme="true" id="searchField"
+								styleClass="search-query">
+								<xp:this.attrs>
+									<xp:attr name="placeholder"
+										value="#{javascript:(compositeData.searchPlaceholder!=null)?compositeData.searchPlaceholder:''}">
+									</xp:attr>
+								</xp:this.attrs>
+								<xp:eventHandler event="onkeypress" submit="false">
+									<xp:this.script><![CDATA[if (thisEvent.keyCode==13) {
+document.getElementById("#{id:searchButton}").click();
+thisEvent.preventDefault();
+thisEvent.stopPropagation();
+}]]></xp:this.script>
+								</xp:eventHandler>
+							</xp:inputText>
+							<xp:button id="searchButton" disableTheme="true"
+								styleClass="btn #{javascript:(compositeData.navbarBottomInverse)?'btn-inverse':''}"
+								style="#{javascript:(@ClientType()=='Notes')?'padding-top:6px;padding-bottom:6px':''}">
+								<xp:text escape="false" disableTheme="true">
+									<xp:this.value><![CDATA[#{javascript:if(compositeData.navbarBottomInverse){
+	return '<i class="icon-search icon-white"></i>'
+}
+return '<i class="icon-search"></i>'}]]></xp:this.value>
+								</xp:text>
+								<xp:eventHandler event="onclick" submit="true"
+									refreshMode="complete">
+									<xp:this.action>
+										<xp:actionGroup>
+
+											<xp:executeScript>
+												<xp:this.script><![CDATA[#{javascript:var val = getComponent("searchField").getValue();
+sessionScope.put("search", val)}]]></xp:this.script>
+											</xp:executeScript>
+											<xp:openPage name="/search.xsp">
+											</xp:openPage>
+										</xp:actionGroup>
+									</xp:this.action>
+								</xp:eventHandler>
+							</xp:button>
+						</xp:div>
+					</xp:panel>
+				</xp:div>
+
+			</xp:div>
+		</xp:div>
+	</xp:div>
+	<xc:ccAbout></xc:ccAbout>
+</xp:view>

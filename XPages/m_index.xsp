@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xe="http://www.ibm.com/xsp/coreex"
+	xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xp:this.resources>
+		<xp:dojoModule name="dojox.mobile.TextBox"></xp:dojoModule>
+		<xp:dojoModule name="dojox.mobile.Button"></xp:dojoModule>
+	</xp:this.resources>
+	<xe:singlePageApp id="singlePageApp1" selectedPageName="homepage">
+		<xe:appPage id="appPage1" pageName="homepage">
+			<xe:djxmHeading id="djxmHeading1"
+				title="#{javascript:@DbTitle()}" label="#{javascript:@DbTitle()}">
+
+				<xc:m_search></xc:m_search>
+			</xe:djxmHeading>
+
+			<xe:djxmRoundRectList id="djxmRoundRectList1">
+				<xe:djxmLineItem id="djxmLineItem1" title="Recent"
+					label="Recent" moveTo="viewPage" rightText="all recent posts"
+					style="padding-left: 20px">
+				</xe:djxmLineItem>
+			</xe:djxmRoundRectList>
+
+
+		</xe:appPage>
+
+
+		<xe:appPage id="appPage2" pageName="viewPage" preload="true"
+			resetContent="true">
+			<xe:djxmHeading id="djxmHeading2" title="Recent"
+				label="Recent" back="back">
+				<xc:m_search></xc:m_search>
+			</xe:djxmHeading>
+			<xe:dataView openDocAsReadonly="true"
+				pageName="#documentPage" columnTitles="true" var="doc">
+				<xe:this.data>
+					<xp:dominoView viewName="mRecent" var="view1">
+					</xp:dominoView>
+				</xe:this.data>
+
+				<xe:this.summaryColumn>
+					<xe:viewSummaryColumn columnName="subject"></xe:viewSummaryColumn>
+				</xe:this.summaryColumn>
+			</xe:dataView>
+		</xe:appPage>
+
+		<xe:appPage id="appPage3" pageName="documentPage"
+			resetContent="true" preload="true">
+
+
+			<xp:panel>
+				<xp:this.data>
+					<xp:dominoDocument var="document1"
+						formName="snippet">
+					</xp:dominoDocument>
+				</xp:this.data>
+				<xe:djxmHeading id="djxmHeading3"
+					title="#{document1.snSubject}" label="#{document1.snSubject}"
+					back="back">
+					<xc:m_search></xc:m_search>
+				</xe:djxmHeading>
+				<xe:djxmRoundRectList id="djxmRoundRectList2"
+					style="padding-left: 20px">
+					<xp:text escape="false"
+						value="#{document1.snDesc}">
+					</xp:text>
+					<pre>
+						<xp:text escape="true"
+							value="#{document1.snCode}">
+						</xp:text>
+					</pre>
+					<xp:text escape="false"
+						value="#{document1.snDesc2}">
+					</xp:text>
+				</xe:djxmRoundRectList>
+			</xp:panel>
+		</xe:appPage>
+
+		<xe:appPage id="appPage4" preload="true" resetContent="true"
+			pageName="searchPage">
+
+			<xe:djxmHeading id="djxmHeading4" title="Search"
+				label="Search" back="back">
+			</xe:djxmHeading>
+
+
+			<xp:label value="Enter search term" id="label1"
+				for="query">
+			</xp:label>
+			<xp:inputText id="query" dojoType="dojox.mobile.TextBox"></xp:inputText>
+			<xp:button value="Search" id="button1" dojoType="dojox.mobile.Button"></xp:button>
+			</xe:appPage>
+	</xe:singlePageApp>
+
+</xp:view>

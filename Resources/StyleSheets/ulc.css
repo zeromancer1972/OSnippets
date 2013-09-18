@@ -1,0 +1,195 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu|PT+Sans|Droid+Sans);
+
+
+body, h1,h2,h3,h4,h5,h6, input, td,th {
+	font-family: "Droid Sans", Arial, Helvetica, sans-serif!important;
+	}
+
+	
+body {
+	background: url(ulc_blu_gradient.png) repeat-x #f8f8f8;
+	background-position: top left;
+	}
+	
+.about {
+	cursor: pointer;
+	}
+
+.ulcAppLogo {
+	background: url(notes9icon.png) no-repeat 20px center;
+	padding-left: 60px!important;
+	}
+a.ulcAppLogo {
+	color: #fff!important;
+	}
+	
+.ulcActionbar {
+	margin-top: 14px;
+	}
+	
+.ulcLogo {
+	cursor:pointer;
+	}
+	
+.ulcHeader {
+	border-bottom: solid 4px #08c;
+	}
+.ulcNavbar {
+	background: url(banner_bg.png) repeat-x bottom left #7F7F7F!important;
+	color: #999;
+	}
+	
+.ulcFooterText {
+	padding-top: 10px;
+	}
+.ulcFooterSearch {
+	padding-top: 5px;
+	}
+
+.ulcContainer {
+		
+}
+
+.ulcCheckbox input[type="checkbox"]{
+	margin-right: 3px;
+	padding-right: 10px;
+	vertical-align: top;
+	}
+	
+.ulcFixedX {
+	position: fixed;
+}
+
+.ulcView {
+	font-size: 1em!important;
+	width: 100%;
+}
+
+.ulcDatarow {
+	border-bottom: solid 1px #ddd;
+	}
+.ulcDatarow:hover {
+	background-color: #f8f8f8;
+	}
+
+.ulcActionbar {
+	margin-bottom: 10px;
+	}
+	
+.ulcNavigation {
+	
+	}
+
+.nav {
+	margin-bottom: 0px!important;
+	}
+.nav-tabs {
+	margin-right: 0px!important;
+	border-right: 0!important;
+	}
+	
+.ulcFormHeader {
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: solid 1px #eee;
+	}
+
+.ulcTabContent {
+	padding: 10px 10px 10px 10px;
+	margin: 14px 0px 84px 0px;
+	border-top: solid 1px #ddd;
+	border-right: solid 1px #ddd;
+	border-bottom: solid 1px #ddd;
+	border-left: solid 1px #ddd;
+	background-color: #fff;
+	/*border-right: solid 1px #ddd;*/
+}
+	
+.ulcTabContentTop {
+	border-top: solid 1px #ddd;
+}
+
+.ulcTabs {
+	/*border-top: solid 1px #ddd;*/
+	margin-left: 100px;
+}
+
+.ulcPager {
+	background-color: #f3f3f3;
+	border: solid 1px #ddd;
+	display: block;
+	height: 1.7em;
+	padding-right: 4px;
+	}
+
+	
+.ulcPagerInner {
+	padding: 4px;
+	
+	}
+.ulcPagerInner span {
+	margin-right: 10px;
+	}
+	
+.ulcLabel {
+	width: 120px;
+	margin-right: 10px;
+	font-weight: bold;
+	}
+.ulcHidden {
+	display: none;
+	}
+	
+.ulcNpCaption {
+	font-weight: bold;
+	margin-bottom: 10px;
+	}
+	
+.ulcNameEntry {
+	cursor: pointer;
+	border-bottom: solid 1px #ddd;
+	}
+.ulcNameEntry:hover {
+	background-color: #f8f8f8;
+	}
+	
+.ulcNamesList {
+	height: 400px;
+	overflow: auto;
+	}
+.ulcNpField {
+	margin-top: 30px;
+	}
+	
+.ulcCode {
+	font-family: monospace;
+	}
+
+.ulcCommentForm {
+	display: none;
+	}
+
+
+.title {
+	font-size: 2em;
+}
+
+.ulcWarningbox {
+	margin-top: 180px;
+}
+.homeSnippet {
+	padding-bottom: 5px;
+	margin-bottom 10px;
+	border-bottom: solid 1px #eee;
+	}
+	
+.homeTypes {
+	float:left;
+	width: 100px;
+	text-align: center;
+}
+
+.homeMain {
+	margin: 0 auto;
+	margin-left: 110px;
+}

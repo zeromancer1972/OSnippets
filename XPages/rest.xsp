@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" rendered="false">
+	<xp:this.afterRenderResponse><![CDATA[#{javascript:try{     
+var externalContext = facesContext.getExternalContext();
+var writer = facesContext.getResponseWriter();
+var rest = new com.rest.REST();
+writer.write( rest.invoke( externalContext.getRequest(), externalContext.getResponse(), context.getUrlParameter("view") ));
+writer.endDocument();
+}  catch(e){     
+
+}}]]></xp:this.afterRenderResponse>
+</xp:view>

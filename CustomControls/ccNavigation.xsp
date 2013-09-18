@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xp:this.resources>
+		<xp:script src="/libSSJSMain.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<xp:div styleClass="">
+		<xp:this.rendered><![CDATA[#{javascript:return (context.getUrl().toString().indexOf('admin.xsp')==-1) && (context.getUrl().toString().indexOf('profiles.xsp')==-1)}]]></xp:this.rendered>
+
+		<xc:ccActionbar></xc:ccActionbar>
+		<ul class="nav nav-pills nav-stacked ulcFixed">
+			<xp:panel tagName="li">
+				<xp:this.styleClass><![CDATA[#{javascript: return (context.getUrlParameter('view')=='' && context.getUrl().toString().indexOf('index.xsp')!=-1)?'active':''}]]></xp:this.styleClass>
+				<xp:link value="/index.xsp" disableTheme="true">
+					<xp:this.text><![CDATA[#{javascript:getLocale("Recent")}]]></xp:this.text>
+				</xp:link>
+			</xp:panel>
+			<li
+				class="#{javascript: return (context.getUrl().toString().indexOf('snDate')!=-1)?'active':''}">
+				<xp:link value="/index.xsp?view=snDate"
+					disableTheme="true">
+					<xp:this.text><![CDATA[#{javascript:getLocale("Date")}]]></xp:this.text>
+				</xp:link>
+			</li>
+			<li
+				class="#{javascript: return (context.getUrl().toString().indexOf('snType')!=-1)?'active':''}">
+				<xp:link value="/index.xsp?view=snType"
+					disableTheme="true">
+					<xp:this.text><![CDATA[#{javascript:getLocale("Type")}]]></xp:this.text>
+				</xp:link>
+			</li>
+			<li
+				class="#{javascript: return (context.getUrl().toString().indexOf('snTags')!=-1)?'active':''}">
+				<xp:link value="/index.xsp?view=snTags"
+					disableTheme="true">
+					<xp:this.text><![CDATA[#{javascript:getLocale("Tags")}]]></xp:this.text>
+				</xp:link>
+			</li>
+			<li
+				class="#{javascript: return (context.getUrl().toString().indexOf('snAuthor')!=-1)?'active':''}">
+				<xp:link value="/index.xsp?view=snAuthor"
+					rendered="false" disableTheme="true">
+					<xp:this.text><![CDATA[#{javascript:getLocale("Author")}]]></xp:this.text>
+				</xp:link>
+			</li>
+
+		</ul>
+	</xp:div>
+
+	<xp:div styleClass="ulcNavigation"
+		rendered="#{javascript:return (context.getUrl().toString().indexOf('admin.xsp')!=-1) || (context.getUrl().toString().indexOf('profiles.xsp')!=-1)}">
+		<ul class="nav nav-pills nav-stacked ulcFixed">
+			<li
+				class="#{javascript: return (context.getUrl().toString().indexOf('admin.xsp')!=-1)?'active':''}">
+				<a href="admin.xsp">Configuration</a>
+			</li>
+
+		</ul>
+	</xp:div>
+
+	<xc:ccLicense></xc:ccLicense>
+</xp:view>

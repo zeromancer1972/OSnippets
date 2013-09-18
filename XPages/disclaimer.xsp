@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="#{javascript:@DbTitle()}">
+
+
+	<xp:this.afterRenderResponse>
+		<xp:executeScript>
+			<xp:this.script><![CDATA[#{javascript:sessionScope.put("search", null)}]]></xp:this.script>
+		</xp:executeScript>
+	</xp:this.afterRenderResponse>
+	<xc:ccResources></xc:ccResources>
+
+	<xc:ccBootstrapLayout navbarTopInverse="true"
+		searchPlaceholder="Search snippets" color="#08c">
+		<xc:this.brandLink><![CDATA[#{javascript:"/"+@Subset(@DbName(),-1)+"/index.xsp"}]]></xc:this.brandLink>
+		<xc:this.brandText><![CDATA[#{javascript:"OSnippets"}]]></xc:this.brandText>
+		<xp:this.facets>
+			<xp:div xp:key="mainLeftCol">
+				<xc:ccNavigation></xc:ccNavigation>
+				<xp:messages id="messages1" layout="table"></xp:messages>
+			</xp:div>
+
+			<xp:div styleClass="ulcTabContent ui-corner-all" xp:key="mainCenter">
+				<div>
+					This is a private site of Oliver Busse and part of
+					www.oliverbusse.eu.
+					<xp:br id="br1"></xp:br>
+					The code, hints and tips are published with no warranty
+					so you use them at your own risk.
+					<xp:br id="br2"></xp:br>
+					All names and trademarks are property of the respective owners, IBM
+					Notes and Domino is a trademark of IBM Corp.
+					<xp:br></xp:br>
+					For more information&#160;
+					<a href="#" class="about">click here</a>
+					.
+				</div>
+				<h4>Imprint</h4>
+				Oliver Busse
+				<xp:br id="br3"></xp:br>
+				Rudolfstr. 21
+				<xp:br id="br4"></xp:br>
+				D-01097 Dresden
+				<xp:br id="br5"></xp:br>
+				abuse[at]oliverbusse.com
+				<h4>Legal</h4>
+				Please follow&#160;
+				<a
+					href="http://mardou.dyndns.org/Privat/homepage_cms.nsf/content/impressum.html">this link</a>
+				&#160;to read the full legal information.
+			</xp:div>
+		</xp:this.facets>
+	</xc:ccBootstrapLayout>
+</xp:view>

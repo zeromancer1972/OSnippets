@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<xp:this.resources>
+		<xp:script src="/libSSJSMain.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	
+	<div class="navbar navbar-fixed-bottom">
+		<div class="navbar-inner _ulcNavbar">
+			<div class="container row-fluid">
+				<div class="span6 pull left ulcFooterText">
+					<xp:text escape="false" id="computedField1"
+						disableTheme="true">
+						<xp:this.value><![CDATA[#{javascript:"&copy; "+@Year(@Today())+" Oliver Busse"}]]></xp:this.value>
+					</xp:text>
+				</div>
+				<xp:div styleClass="span6 navbar-search" rendered="#{javascript:database.isFTIndexed()}"
+					disableTheme="true">
+					<xp:panel disableTheme="true" tagName="div" styleClass="form-search">
+						<xp:div styleClass="input-append pull-right" disableTheme="true">
+
+
+							<xp:inputText disableTheme="true" id="searchField"
+								styleClass="search-query">
+								<xp:this.attrs>
+									<xp:attr name="placeholder" value="#{javascript:getLocale('Search')}">
+									</xp:attr>
+								</xp:this.attrs>
+								<xp:eventHandler event="onkeypress" submit="false">
+									<xp:this.script><![CDATA[if (thisEvent.keyCode==13) {
+document.getElementById("#{id:searchButton}").click();
+thisEvent.preventDefault();
+thisEvent.stopPropagation();
+}]]></xp:this.script>
+								</xp:eventHandler>
+							</xp:inputText>
+							<xp:button id="searchButton" disableTheme="true"
+								styleClass="btn #{javascript:(compositeData.navbarBottomInverse)?'btn-inverse':''}"
+								style="#{javascript:(@ClientType()=='Notes')?'padding-top:6px;padding-bottom:6px':''}">
+								<xp:text escape="false" disableTheme="true">
+									<xp:this.value><![CDATA[#{javascript:if(compositeData.navbarBottomInverse){
+	return '<i class="icon-search icon-white"></i>'
+}
+return '<i class="icon-search"></i>'}]]></xp:this.value>
+								</xp:text>
+								<xp:eventHandler event="onclick" submit="true"
+									refreshMode="complete">
+									<xp:this.action>
+										<xp:actionGroup>
+
+											<xp:executeScript>
+												<xp:this.script><![CDATA[#{javascript:var val = getComponent("searchField").getValue();
+sessionScope.put("search", val)}]]></xp:this.script>
+											</xp:executeScript>
+											<xp:openPage name="/search.xsp">
+											</xp:openPage>
+										</xp:actionGroup>
+									</xp:this.action>
+								</xp:eventHandler>
+							</xp:button>
+						</xp:div>
+					</xp:panel>
+				</xp:div>
+			</div>
+		</div>
+	</div>
+
+	<div id="about" style="display:none">
+
+		<xc:ccAbout></xc:ccAbout>
+	</div>
+</xp:view>

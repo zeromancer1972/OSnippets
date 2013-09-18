@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+
+	<xp:this.data>
+		<xp:dominoDocument var="doc"></xp:dominoDocument>
+	</xp:this.data>
+
+	<xp:text escape="false" id="computedField1">
+		<xp:this.value><![CDATA[#{javascript:var docid = context.getUrlParameter('documentId')
+if(docid==''){
+return '<h4>No document selected</h4>'
+}
+return '<h4>The form "'+database.getDocumentByUNID(docid).getItemValueString("Form")+'" is not defined.</h4>'+
+'Please define a form and an xpage with the same name to solve this.'}]]></xp:this.value>
+	</xp:text>
+	
+</xp:view>

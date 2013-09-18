@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B0F005AC941" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="55a" sequence="3" unid="372FE9869274DC5BC1257B67007E5F66">
+<created><datetime dst="true">20130511T010019,58+02</datetime></created>
+<modified><datetime dst="true">20130511T215339,76+02</datetime></modified>
+<revised><datetime dst="true">20130511T010030,86+02</datetime></revised>
+<lastaccessed><datetime dst="true">20130511T215339,76+02</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20130511T215339,76+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Oliver Busse/O=ulcbs</name></updatedby>
+<wassignedby><name>CN=Oliver Busse/O=ulcbs</name></wassignedby>
+<item name="$FlagsExt"><text>D</text></item>
+<item name="$ImagesWide" sign="true"><number>1</number></item>
+<item name="$ImagesHigh" sign="true"><number>1</number></item>
+<item name="$ImagesColorize" sign="true"><number>0</number></item>
+
+
+<item name="$MimeType" sign="true"><text>image/png</text></item>
+<item name="$FileModDT" sign="true"><datetime dst="true">20130501T233112,66+02</datetime></item>
+<item name="$Flags"><text>34CiQ</text></item>
+<item name="$ImageNames" sign="true"><text>ulc_blu_gradient.png</text></item>
+<item name="$TITLE" sign="true"><textlist><text>white2gray.png</text></textlist></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item></note>

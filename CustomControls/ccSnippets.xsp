@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoView var="view1" viewName="snDate"></xp:dominoView>
+	</xp:this.data>
+
+	
+	<xp:pager layout="Previous Group Next" partialRefresh="true"
+		id="pager1" for="repeat1" alwaysCalculateLast="true" outerStyleClass="ulcPager">
+	</xp:pager>
+
+	<xp:repeat id="repeat1" rows="5" value="#{view1}" var="snippets">
+		<xp:div disableTheme="true" styleClass="homeSnippet">
+			<xp:div disableTheme="true" styleClass="homeTypes">
+				<xp:repeat id="repeat2" rows="30"
+					value="#{javascript:snippets.getDocument().getItemValue('snType')}"
+					var="snType" disableOutputTag="true">
+
+					<xp:this.rendered><![CDATA[#{javascript:snippets.getDocument().getItemValueString("Form").equals("snippet")}]]></xp:this.rendered>
+					<xp:link escape="false" id="link3" disableTheme="true">
+						<xp:this.text><![CDATA[#{javascript:'<span class="badge">'+snType+'</span>'}]]></xp:this.text>
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete">
+							<xp:this.action><![CDATA[#{javascript:sessionScope.put('search', snType);
+context.redirectToPage('search.xsp');}]]></xp:this.action>
+						</xp:eventHandler>
+					</xp:link>
+					<xp:br id="br1"></xp:br>
+
+
+				</xp:repeat>
+			</xp:div>
+			<xp:div disableTheme="true" styleClass="homeTypes">
+				<xp:repeat id="repeat3" rows="30"
+					value="#{javascript:snippets.getDocument().getItemValue('poTags')}"
+					var="poTag" disableOutputTag="true">
+
+					<xp:this.rendered><![CDATA[#{javascript:snippets.getDocument().getItemValueString("Form").equals("post")}]]></xp:this.rendered>
+					<xp:link escape="false" id="link4" disableTheme="true">
+						<xp:this.text><![CDATA[#{javascript:'<span class="badge">'+poTag+'</span>'}]]></xp:this.text>
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete">
+							<xp:this.action><![CDATA[#{javascript:sessionScope.put('search', poTag);
+context.redirectToPage('search.xsp');}]]></xp:this.action>
+						</xp:eventHandler>
+					</xp:link>
+					<xp:br id="br2"></xp:br>
+
+
+				</xp:repeat>
+			</xp:div>
+			<xp:div disableTheme="true" styleClass="homeMain">
+				<h4>
+					<xp:link escape="true" id="link1"
+						disableTheme="true">
+						<xp:this.text>
+							#{javascript:snippets.getDocument().getItemValueString('snSubject')}
+						</xp:this.text>
+
+						<xp:this.value><![CDATA[#{javascript:if(@ClientType()=='Notes'){
+	'/%24%24OpenDominoDocument.xsp?documentId='+snippets.getDocument().getUniversalID()
+} else {
+	'/id/'+snippets.getDocument().getItemValueString('snID')
+}}]]></xp:this.value>
+
+						<xp:this.rendered><![CDATA[#{javascript:snippets.getDocument().getItemValueString("Form").equals("snippet")}]]></xp:this.rendered>
+					</xp:link>
+
+					<xp:link escape="true" id="link2"
+						text="#{javascript:snippets.getDocument().getItemValueString('poSubject')}"
+						disableTheme="true">
+
+						<xp:this.rendered><![CDATA[#{javascript:snippets.getDocument().getItemValueString("Form").equals("post")}]]></xp:this.rendered>
+						<xp:this.value><![CDATA[#{javascript:if(@ClientType()=='Notes'){
+	'/%24%24OpenDominoDocument.xsp?documentId='+snippets.getDocument().getUniversalID()
+} else {
+	'/id/'+snippets.getDocument().getItemValueString('poID')
+}}]]></xp:this.value>
+					</xp:link>
+
+				</h4>
+
+				<xp:div>
+					<xp:text escape="false" id="computedField1"
+						disableTheme="true">
+						<xp:this.rendered><![CDATA[#{javascript:snippets.getDocument().getItemValueString("Form").equals("snippet")}]]></xp:this.rendered>
+						<xp:this.value><![CDATA[#{javascript:var doc:NotesDocument = snippets.getDocument();
+var mime:NotesMIMEEntity = doc.getMIMEEntity('snDesc');
+var text:java.lang.String = "";
+
+while(mime!=null){
+	mime.decodeContent()
+	text = mime.getContentAsText()
+	if(text.startsWith("<")){
+		return text.replaceAll("<[^>]*>", "").substring(0,400)+" [...]"
+	}
+	mime = mime.getNextEntity()
+}}]]></xp:this.value>
+					</xp:text>
+					<xp:text escape="false" id="computedField2"
+						disableTheme="true">
+						<xp:this.rendered><![CDATA[#{javascript:snippets.getDocument().getItemValueString("Form").equals("post")}]]></xp:this.rendered>
+						<xp:this.value><![CDATA[#{javascript:var doc:NotesDocument = snippets.getDocument();
+var mime:NotesMIMEEntity = doc.getMIMEEntity('poBody');
+var text:java.lang.String = "";
+
+while(mime!=null){
+	mime.decodeContent()
+	text = mime.getContentAsText()
+	if(text.startsWith("<")){
+		return text.replaceAll("<[^>]*>", "").substring(0,400)+" [...]"
+	}
+	mime = mime.getNextEntity()
+}}]]></xp:this.value>
+					</xp:text>
+				</xp:div>
+				<xp:panel id="label1" tagName="div"
+					style="text-align:right; font-size: 0.8em">
+					<xp:label>
+						<xp:this.value><![CDATA[#{javascript:var created = (snippets.getDocument().hasItem("poDate")) ? snippets.getDocument().getItemValue("poDate").elementAt(0) : snippets.getDocument().getCreated()
+"Published "+ created.getDateOnly()+", "+created.getTimeOnly()}]]></xp:this.value>
+					</xp:label>
+				</xp:panel>
+			</xp:div>
+		</xp:div>
+	</xp:repeat>
+
+	<xp:pager layout="Previous Group Next" partialRefresh="true"
+		id="pager2" for="repeat1" alwaysCalculateLast="true" outerStyleClass="ulcPager">
+	</xp:pager>
+
+</xp:view>

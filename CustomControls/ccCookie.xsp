@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+
+	
+	<xp:this.resources>
+		<xp:script src="/libSSJSMain.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<xp:this.beforePageLoad><![CDATA[#{javascript:var pageURL = context.getUrl().toString()
+if(context.getUrl().toString().indexOf('index.xsp')==-1) return true
+setCookie("_ulcLastView", session.evaluate("@RightBack(\"" + pageURL + "\"; \"/\")").get(0))}]]></xp:this.beforePageLoad></xp:view>

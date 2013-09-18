@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.resources>
+		<xp:styleSheet href="/comment.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:this.data>
+		<xp:dominoDocument var="comment" computeWithForm="onsave"
+			formName="comment">
+		</xp:dominoDocument>
+		<xp:dominoDocument var="snippet" formName="snippet"
+			action="openDocument" documentId="#{javascript:context.getUrlParameter('id')}">
+		</xp:dominoDocument>
+	</xp:this.data>
+	<xp:div>
+		Your comment on &quot;
+		<xp:label value="#{javascript:snippet.getItemValueString('snSubject')}"
+			id="label1" disableTheme="true">
+		</xp:label>
+		&quot;:
+	</xp:div>
+	<xp:div align="left">
+		<xp:table style="width:90%" disableTheme="true">
+			<xp:tr>
+				<xp:td styleClass="span2">
+					<xp:label value="Your name" id="label2" disableTheme="true">
+					</xp:label>
+				</xp:td>
+				<xp:td>
+					<xp:inputText id="inputText1"
+						value="#{comment.cmWho}" styleClass="span9">
+					<xp:this.attrs>
+						<xp:attr name="placeholder" value="John Doe"></xp:attr>
+					</xp:this.attrs></xp:inputText>
+				</xp:td>
+			</xp:tr>
+			<xp:tr>
+				<xp:td>
+					<xp:label value="Your EMail (not be published)" id="label3" disableTheme="true">
+					</xp:label>
+				</xp:td>
+				<xp:td>
+					<xp:inputText id="inputText2"
+						value="#{comment.cmMail}" styleClass="span9">
+					<xp:this.attrs>
+						<xp:attr name="placeholder"
+							value="john.doe@doe.com">
+						</xp:attr>
+					</xp:this.attrs></xp:inputText>
+				</xp:td>
+			</xp:tr>
+			<xp:tr>
+				<xp:td>
+					<xp:label value="Website (optional)" id="label4" disableTheme="true">
+					</xp:label>
+				</xp:td>
+				<xp:td>
+					<xp:inputText id="inputText3"
+						value="#{comment.cmWebsite}" styleClass="span9">
+					<xp:this.attrs>
+						<xp:attr name="placeholder" value="http://"></xp:attr>
+					</xp:this.attrs></xp:inputText>
+				</xp:td>
+			</xp:tr>
+			<xp:tr>
+				<xp:td>
+					<xp:label value="Comment" id="label5" disableTheme="true">
+					</xp:label>
+				</xp:td>
+				<xp:td>
+					<xp:inputRichText id="inputRichText1"
+						value="#{comment.cmComment}" htmlFilterIn="acf">
+						<xp:this.dojoAttributes>
+							<xp:dojoAttribute name="width"
+								value="550">
+							</xp:dojoAttribute>
+							<xp:dojoAttribute name="height"
+								value="180">
+							</xp:dojoAttribute>
+							<xp:dojoAttribute name="toolbarType"
+								value="Slim">
+							</xp:dojoAttribute>
+						</xp:this.dojoAttributes>
+					</xp:inputRichText>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+	</xp:div>
+</xp:view>

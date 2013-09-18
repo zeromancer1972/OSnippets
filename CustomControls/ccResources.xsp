@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.resources>
+		<xp:linkResource rel="alternate" type="application/rss+xml"
+			title="RSS Feed"
+			href="#{javascript:'/'+@ReplaceSubstring(database.getFilePath(), '\\','/')+'/rss.xsp'}">
+		</xp:linkResource>
+		<xp:script src="/libSSJSMain.jss" clientSide="false"></xp:script>
+		<xp:bundle src="/locales.properties" var="locales"></xp:bundle>
+	</xp:this.resources>
+</xp:view>

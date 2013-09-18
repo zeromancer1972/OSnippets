@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.afterPageLoad>
+		<![CDATA[#{javascript:var uAgent = context.getUserAgent().getUserAgent();
+var externalContext=facesContext.getExternalContext();
+var servletRequest=externalContext.getRequest();
+var queryString=servletRequest.getQueryString(); 
+if ((uAgent.match("iPhone") !== null || param.platfrom=="iphone") || (uAgent.match("Android") !== null || param.platfrom=="android") || uAgent.match("iPad") !== null)
+{
+	context.redirectToPage("/m_index.xsp", true);
+}
+else
+{
+	context.redirectToPage((queryString!="")?"/d_index.xsp?"+queryString:"/d_index.xsp", true);	
+}
+}]]>
+	</xp:this.afterPageLoad>
+</xp:view>

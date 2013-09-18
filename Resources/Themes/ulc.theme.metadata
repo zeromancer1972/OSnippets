@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B0F005AC941" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="2ae" sequence="279" unid="CAFDAFB69DE2D416C1257B0D0079C595">
+<created><datetime>20130209T231004,37+01</datetime></created>
+<modified><datetime dst="true">20130429T084840,27+02</datetime></modified>
+<revised><datetime dst="true">20130428T135931,17+02</datetime></revised>
+<lastaccessed><datetime dst="true">20130429T084840,27+02</datetime></lastaccessed>
+<addedtofile><datetime>20130212T042613,85+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Oliver Busse/O=ulcbs</name></updatedby>
+<wassignedby><name>CN=Oliver Busse/O=ulcbs</name></wassignedby>
+<item name="$TITLE"><text>ulc.theme</text></item>
+<item name="$Flags"><text>34567Cg~`</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>ulc.theme</text></item>
+<item name="$CSSFiles"><textlist><text>/google-code-prettify/pretty.css</text><text>css/custom-theme/jquery.ui.custom.css</text><text>css/bootstrap.css</text><text>css/bootstrap-responsive.css</text><text>chosen/chosen.css</text><text>select2/select2.css</text><text>ulc.css</text></textlist></item></note>

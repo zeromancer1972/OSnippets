@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="#{javascript:@DbTitle()}">
+
+
+	<xp:this.afterRenderResponse>
+		<xp:executeScript>
+			<xp:this.script><![CDATA[#{javascript:sessionScope.put("search", null)}]]></xp:this.script>
+		</xp:executeScript>
+	</xp:this.afterRenderResponse>
+
+	<xp:this.data>
+		<xp:dominoDocument var="doc" action="openDocument"></xp:dominoDocument>
+	</xp:this.data>
+	<xc:ccResources></xc:ccResources>
+
+
+	<xc:ccCookie></xc:ccCookie>
+
+	<xc:ccHeader></xc:ccHeader>
+	<xp:div styleClass="container ulcContainer">
+		<xp:div styleClass="row-fluid">
+			<xp:div styleClass="span2">
+				<xc:ccNavigation></xc:ccNavigation>
+			</xp:div>
+			<xp:div styleClass="span10 ulcTabContent ui-corner-all">
+				<xp:table style="width:100%">
+		<xp:tr>
+			<xp:td styleClass="span3">
+				<xp:label value="ID" id="snID_Label1" for="snID1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{doc.snID}" id="snID1" readonly="true"
+					defaultValue="#{javascript:@Unique()}">
+				</xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Subject" id="snSubject_Label1" for="snSubject1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{doc.snSubject}" id="snSubject1"
+					styleClass="span12">
+				</xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Description" id="snDesc_Label1" for="snDesc1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputRichText value="#{doc.snDesc}" id="snDesc1">
+					<xp:this.dojoAttributes>
+						<xp:dojoAttribute name="height" value="100">
+						</xp:dojoAttribute>
+						<xp:dojoAttribute name="toolbarType"
+							value="Slim">
+						</xp:dojoAttribute>
+					</xp:this.dojoAttributes>
+				</xp:inputRichText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Code" id="snCode_Label1" for="snCode1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+
+				<xp:inputRichText value="#{doc.snCode}" id="snCode1">
+					<xp:this.dojoAttributes>
+						<xp:dojoAttribute name="height" value="400">
+						</xp:dojoAttribute>
+						<xp:dojoAttribute name="toolbarType"
+							value="Slim">
+						</xp:dojoAttribute>
+					</xp:this.dojoAttributes>
+				</xp:inputRichText>
+
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Tags" id="snTags_Label1" for="snTags1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{doc.snTags}" id="snTags1"
+					styleClass="span12">
+				</xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Author" id="snAuthor_Label1" for="snAuthor1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{doc.snAuthor}" id="snAuthor1"
+					styleClass="span12">
+				</xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Rating" id="snRating_Label1" for="snRating1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{doc.snRating}" id="snRating1"></xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Type" id="snType_Label1" for="snType1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{doc.snType}" id="snType1"></xp:inputText>
+			</xp:td>
+		</xp:tr>
+	</xp:table><xp:br></xp:br><xp:br></xp:br>
+			</xp:div>
+		</xp:div>
+	</xp:div>
+
+
+	<xc:ccFooter></xc:ccFooter>
+</xp:view>

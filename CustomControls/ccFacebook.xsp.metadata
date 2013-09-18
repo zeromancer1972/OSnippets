@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B0F005AC941" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="2ee" sequence="15" unid="4673B35B305F91E7C1257B10000CAAE6">
+<created><datetime>20130212T031821,82+01</datetime></created>
+<modified><datetime dst="true">20130918T080601,58+02</datetime></modified>
+<revised><datetime dst="true">20130812T094156,86+02</datetime></revised>
+<lastaccessed><datetime dst="true">20130918T080601,58+02</datetime></lastaccessed>
+<addedtofile><datetime>20130212T042614,19+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Oliver Busse/O=ulcbs</name></updatedby>
+<wassignedby><name>CN=Oliver Busse/O=ulcbs</name></wassignedby>
+<item name="$Flags"><text>gC~4;</text></item>
+<item name="$TITLE"><text>ccFacebook.xsp</text></item>
+
+
+
+
+
+<item name="$FileNames" sign="true"><text>ccFacebook.xsp</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+
+</note>

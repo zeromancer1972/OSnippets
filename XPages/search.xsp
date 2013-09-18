@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="#{javascript:@DbTitle()}">
+
+
+	<xp:this.afterRenderResponse>
+		<xp:executeScript>
+			<xp:this.script><![CDATA[#{javascript:sessionScope.put("search", null)}]]></xp:this.script>
+		</xp:executeScript>
+	</xp:this.afterRenderResponse>
+
+	<xc:ccResources></xc:ccResources>
+
+
+	<xc:ccCookie></xc:ccCookie>
+
+	<xc:ccBootstrapLayout navbarTopInverse="true"
+		searchPlaceholder="Search snippets" color="#08c">
+		<xc:this.brandLink><![CDATA[#{javascript:"/"+@Subset(@DbName(),-1)+"/index.xsp"}]]></xc:this.brandLink>
+		<xc:this.brandText><![CDATA[#{javascript:"OSnippets"}]]></xc:this.brandText>
+		<xp:this.facets>
+			<xp:div xp:key="mainLeftCol">
+				<xc:ccNavigation></xc:ccNavigation>
+			</xp:div>
+
+			<xp:div xp:key="mainCenter" styleClass="ulcTabContent ui-corner-all">
+				<xp:panel tagName="h4">
+					<xp:label id="label1" disableTheme="true">
+						<xp:this.value><![CDATA[#{javascript:var search = sessionScope.get("search");
+return (search!=null) ? "The search for \""+search+"\" results" : "There was no search term provided"}]]></xp:this.value>
+					</xp:label>
+				</xp:panel>
+				<xp:repeat id="repeat1" rows="30" var="result">
+					<xp:this.value><![CDATA[#{javascript:var search = sessionScope.get("search");
+var col:NotesDocumentCollection = database.FTSearch(search);
+return col}]]></xp:this.value>
+					<xp:link escape="true" id="link1" disableTheme="true">
+
+						<xp:this.text><![CDATA[#{javascript:if(result.getItemValueString("Form").equals("snippet")){
+result.getItemValueString('snSubject')
+} else {
+result.getItemValueString('poSubject')
+}}]]></xp:this.text>
+						<xp:this.value><![CDATA[#{javascript:if(result.getItemValueString("Form").equals("snippet")) {
+return '/snippet.xsp?documentId='+result
+} else {
+return '/post.xsp?documentId='+result
+}}]]></xp:this.value>
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete">
+						</xp:eventHandler>
+					</xp:link>
+					<xp:br id="br1"></xp:br>
+				</xp:repeat>
+			</xp:div>
+		</xp:this.facets>
+
+	</xc:ccBootstrapLayout>
+
+
+</xp:view>
